@@ -33,3 +33,5 @@ jobs:
         prerelease: true
         # Newline-delimited list of path globs for asset files to upload
         files: Planungsboard.Presentation\bin\Release\netcoreapp3.1\win-x64\Planungsboard.Presentation.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
