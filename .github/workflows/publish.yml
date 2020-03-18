@@ -18,6 +18,11 @@ jobs:
         dotnet-version: 3.1.101
     - name: Publish with dotnet
       run: dotnet publish -r win-x64 -c Release --self-contained true /p:useapphost=true /p:PublishSingleFile=true
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'release.zip'
+        path: Planungsboard.Presentation\bin\Release\netcoreapp3.1\win-x64\publish\Planungsboard.Presentation.exe
     - name: GH Release
       uses: softprops/action-gh-release@v0.1.5
       with:
@@ -32,6 +37,6 @@ jobs:
         # Identify the release as a prerelease. Defaults to false
         prerelease: true
         # Newline-delimited list of path globs for asset files to upload
-        files: Planungsboard.Presentation\bin\Release\netcoreapp3.1\win-x64\publish\Planungsboard.Presentation.exe
+        files: release.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
