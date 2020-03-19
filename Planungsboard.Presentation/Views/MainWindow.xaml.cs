@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation
 {
@@ -23,6 +24,11 @@ namespace Planungsboard.Presentation
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ((MainViewModel) this.DataContext).TeamLabelWidth = e.NewSize.Width;
         }
     }
 }

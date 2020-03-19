@@ -20,12 +20,53 @@
         <Style x:Key="QuarterStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
-        <local:MarginConverter x:Key="MarginConvert" />
         <system:Int32 x:Key="QuarterCount">4</system:Int32>
     </Window.Resources>
     <Grid>
-        <local:CardsTimeLine  Visuals="{Binding Visuals, Mode=TwoWay}"></local:CardsTimeLine>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=TeamLabelWidth}" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding DisplayQuarters[0]}" Style="{StaticResource QuarterStyle}"></TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding DisplayQuarters[1]}" Style="{StaticResource QuarterStyle}"></TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding DisplayQuarters[2]}" Style="{StaticResource QuarterStyle}"></TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="0" Text="{Binding DisplayQuarters[3]}" Style="{StaticResource QuarterStyle}"></TextBlock>
+
+        </Grid>
+
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Teams}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                        </Style>
+                    </DataTemplate.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=Name}" VerticalAlignment="Center" SizeChanged="FrameworkElement_OnSizeChanged" Padding="10" />
+                        <local:CardsTimeLine Grid.Column="1" Visuals="{Binding Visuals, Mode=TwoWay}"></local:CardsTimeLine>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+      
       
     </Grid>
 </Window>

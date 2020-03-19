@@ -9,6 +9,7 @@ namespace Planungsboard.Presentation.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private List<Visual> visuals;
+        private double teamLabelWidth;
 
         public MainViewModel()
         {
@@ -37,10 +38,12 @@ namespace Planungsboard.Presentation.ViewModels
                 new Team()
                 {
                     Name = "Dev-Team #1",
+                    Visuals = CreateDebugData_Visuals(),
                 },
                 new Team()
                 {
                     Name = "Dev-Team #2",
+                    Visuals = CreateDebugData_Visuals(),
                 },
             };
 
@@ -119,7 +122,18 @@ namespace Planungsboard.Presentation.ViewModels
                 },
             };
 
-            this.Visuals = new List<Visual>(){
+            this.Visuals = CreateDebugData_Visuals();
+        }
+
+        public double TeamLabelWidth
+        {
+            get => teamLabelWidth;
+            set => base.Set(ref teamLabelWidth, value);
+        }
+
+        private static List<Visual> CreateDebugData_Visuals()
+        {
+            return new List<Visual>(){
                 new Visual()
                 {
                     LeftMargin = 1,
@@ -214,6 +228,7 @@ namespace Planungsboard.Presentation.ViewModels
     {
         public string Name { get; set; }
         public List<Card> Cards { get; set; }
+        public List<Visual> Visuals { get; set; }
     }
 
     public class Card
