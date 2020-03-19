@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:Planungsboard.Presentation"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:userControls="clr-namespace:Planungsboard.Presentation.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        DataContext="{Binding  MainViewModel, Source={StaticResource Locator}}">
+        Title="Planungsboard" Height="450" Width="800"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+        >
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -24,7 +26,7 @@
         </Style>
         <system:Int32 x:Key="QuarterCount">4</system:Int32>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="10">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -40,9 +42,11 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding DisplayQuarters[0]}" Style="{StaticResource QuarterStyle}"></TextBlock>
+            <Button Grid.Column="1" Grid.Row="0" Content="←" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"></Button>
             <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding DisplayQuarters[1]}" Style="{StaticResource QuarterStyle}"></TextBlock>
             <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding DisplayQuarters[2]}" Style="{StaticResource QuarterStyle}"></TextBlock>
             <TextBlock Grid.Column="4" Grid.Row="0" Text="{Binding DisplayQuarters[3]}" Style="{StaticResource QuarterStyle}"></TextBlock>
+            <Button Grid.Column="4" Grid.Row="0" Content="→" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="5"></Button>
 
         </Grid>
 
@@ -55,12 +59,20 @@
                         </Style>
                     </DataTemplate.Resources>
                     <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=Name}" VerticalAlignment="Center" SizeChanged="FrameworkElement_OnSizeChanged" Padding="10" />
-                        <local:CardsTimeLine Grid.Column="1" Visuals="{Binding Visuals, Mode=TwoWay}"></local:CardsTimeLine>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Path=Name}" VerticalAlignment="Center" SizeChanged="FrameworkElement_OnSizeChanged" Padding="10" />
+
+                        <local:CardsTimeLine Grid.Column="1" Grid.Row="0" Visuals="{Binding Visuals}" />
+                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" VisualQuarter1="{Binding Visuals}" VisualQuarter2="{Binding Visuals}" VisualQuarter3="{Binding Visuals}" VisualQuarter4="{Binding Visuals}" />
+
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

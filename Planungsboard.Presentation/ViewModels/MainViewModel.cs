@@ -163,32 +163,32 @@ namespace Planungsboard.Presentation.ViewModels
 
         private void Execute()
         {
-            this.Visuals = new List<Visual>(){
-                new Visual()
-                {
-                    LeftMargin = 1,
-                    RightMargin = 2,
-                    Id = "123",
-                },
-                new Visual()
-                {
-                    LeftMargin = 0,
-                    RightMargin = 0,
-                    Id = "456",
-                },
-                new Visual()
-                {
-                    LeftMargin = 2,
-                    RightMargin = 1,
-                    Id = "789",
-                },
-                new Visual()
-                {
-                    LeftMargin = 3,
-                    RightMargin = 0,
-                    Id = "234",
-                },
-            };
+            //this.Visuals = new List<Visual>(){
+            //    new Visual()
+            //    {
+            //        LeftMargin = 1,
+            //        RightMargin = 2,
+            //        Id = "123",
+            //    },
+            //    new Visual()
+            //    {
+            //        LeftMargin = 0,
+            //        RightMargin = 0,
+            //        Id = "456",
+            //    },
+            //    new Visual()
+            //    {
+            //        LeftMargin = 2,
+            //        RightMargin = 1,
+            //        Id = "789",
+            //    },
+            //    new Visual()
+            //    {
+            //        LeftMargin = 3,
+            //        RightMargin = 0,
+            //        Id = "234",
+            //    },
+            //};
         }
 
         public List<Visual> Visuals
