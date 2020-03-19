@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace Planungsboard.Presentation.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private List<Visual> visuals;
+
         public MainViewModel()
         {
+            LoadedCommand = new RelayCommand(Execute);
+
             this.DisplayQuarters = new List<string>()
             {
                 "Q1-2020" ,
@@ -142,7 +147,41 @@ namespace Planungsboard.Presentation.ViewModels
             };
         }
 
-        public List<Visual> Visuals { get; set; }
+        private void Execute()
+        {
+            this.Visuals = new List<Visual>(){
+                new Visual()
+                {
+                    LeftMargin = 1,
+                    RightMargin = 2,
+                    Id = "123",
+                },
+                new Visual()
+                {
+                    LeftMargin = 0,
+                    RightMargin = 0,
+                    Id = "456",
+                },
+                new Visual()
+                {
+                    LeftMargin = 2,
+                    RightMargin = 1,
+                    Id = "789",
+                },
+                new Visual()
+                {
+                    LeftMargin = 3,
+                    RightMargin = 0,
+                    Id = "234",
+                },
+            };
+        }
+
+        public List<Visual> Visuals
+        {
+            get => visuals;
+            set => base.Set(ref visuals, value);
+        }
 
         public List<string> DisplayTeams { get; set; }
 
@@ -152,7 +191,11 @@ namespace Planungsboard.Presentation.ViewModels
 
 
         public List<Team> Teams { get; set; }
+
+        public RelayCommand LoadedCommand { get; set; }
     }
+
+
 
     public class Visual
     {
