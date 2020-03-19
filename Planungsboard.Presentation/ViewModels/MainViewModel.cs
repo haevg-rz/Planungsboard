@@ -17,7 +17,7 @@ namespace Planungsboard.Presentation.ViewModels
 
             this.DisplayQuarters = new List<string>()
             {
-                "Q1-2020" ,
+                "Q1-2020",
                 "Q2-2020",
                 "Q3-2020",
                 "Q4-2020",
@@ -25,11 +25,11 @@ namespace Planungsboard.Presentation.ViewModels
 
             this.DisplayTeams = new List<string>()
             {
-                "Dev-Team #1" ,
-                "Dev-Team #2" ,
-                "Dev-Team #3" ,
-                "Dev-Team #4" ,
-                "Dev-Team #5" ,
+                "Dev-Team #1",
+                "Dev-Team #2",
+                "Dev-Team #3",
+                "Dev-Team #4",
+                "Dev-Team #5",
             };
 
 
@@ -62,7 +62,8 @@ namespace Planungsboard.Presentation.ViewModels
                                 new Card()
                                 {
                                     Id = "1234"
-                                },       new Card()
+                                },
+                                new Card()
                                 {
                                     Id = "1234"
                                 },
@@ -76,7 +77,8 @@ namespace Planungsboard.Presentation.ViewModels
                                 new Card()
                                 {
                                     Id = "2432"
-                                }, new Card()
+                                },
+                                new Card()
                                 {
                                     Id = "2432"
                                 },
@@ -97,7 +99,8 @@ namespace Planungsboard.Presentation.ViewModels
                                 new Card()
                                 {
                                     Id = "3244"
-                                },     new Card()
+                                },
+                                new Card()
                                 {
                                     Id = "3244"
                                 },
@@ -133,7 +136,8 @@ namespace Planungsboard.Presentation.ViewModels
 
         private static List<Visual> CreateDebugData_Visuals()
         {
-            return new List<Visual>(){
+            return new List<Visual>()
+            {
                 new Visual()
                 {
                     LeftMargin = 1,
@@ -208,7 +212,6 @@ namespace Planungsboard.Presentation.ViewModels
 
         public RelayCommand LoadedCommand { get; set; }
     }
-
 
 
     public class Visual

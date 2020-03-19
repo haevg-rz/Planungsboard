@@ -24,11 +24,10 @@ namespace Planungsboard.Presentation
         }
 
         public static readonly DependencyProperty VisualsProperty = DependencyProperty.Register(
-            "Visuals", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsTimeLine), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>),PropertyChangedCallback));
+            "Visuals", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsTimeLine), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>), PropertyChangedCallback));
 
         private static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            
         }
 
         public List<Planungsboard.Presentation.ViewModels.Visual> Visuals
