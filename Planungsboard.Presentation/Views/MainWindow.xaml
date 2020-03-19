@@ -4,11 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Planungsboard.Presentation"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        DataContext="{Binding  MainViewModel, Source={StaticResource Locator}}"
-        >
+        DataContext="{Binding  MainViewModel, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <Style x:Key="QuarterStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <local:MarginConverter x:Key="MarginConvert" />
+        <system:Int32 x:Key="QuarterCount">4</system:Int32>
+    </Window.Resources>
     <Grid>
-
+        <ItemsControl ItemsSource="{Binding Visuals}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                        </Style>
+                    </DataTemplate.Resources>
+                    <Border BorderBrush="Red" BorderThickness="0.1">
+                        <Border.Margin>
+                            <MultiBinding Converter="{StaticResource MarginConvert}">
+                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                     AncestorType=ItemsControl}"/>
+                                <Binding Source ="{StaticResource QuarterCount}"></Binding>
+                                <Binding Path="."/>
+                            </MultiBinding>
+                        </Border.Margin>
+                        <TextBlock Text="{Binding Path=Id}" />
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Window>
