@@ -59,7 +59,6 @@ namespace Planungsboard.Presentation.ViewModels
 
         private void LoadedCommandHandling()
         {
-
         }
 
         #endregion
@@ -72,80 +71,70 @@ namespace Planungsboard.Presentation.ViewModels
             {
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q1-2020",  "Q2-2020",  "Q3-2020",  "Q4-2020",},
-                    Id = "123",
-                    Effort = 12,
-                    Title = "TIZU"
-                },
-                                new Card()
-                {
-
-                    AssignedQuarter = new List<string>{   "Q2-2020",  "Q3-2020",  "Q4-2020",},
-                    Id = "123",
-                    Effort = 12,
-                    Title = "TIZU"
-                },
-                                                new Card()
-                {
-
-                    AssignedQuarter = new List<string>{ "Q1-2020",  "Q2-2020",  "Q3-2020"},
+                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020", "Q3-2020", "Q4-2020",},
                     Id = "123",
                     Effort = 12,
                     Title = "TIZU"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q1-2020"},
+                    AssignedQuarter = new List<string> {"Q2-2020", "Q3-2020", "Q4-2020",},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
+                },
+                new Card()
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020", "Q3-2020"},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
+                },
+                new Card()
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020"},
                     Id = "456",
                     Effort = 12,
                     Title = "TuFp"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q2-2020"},
+                    AssignedQuarter = new List<string> {"Q2-2020"},
                     Id = "789",
                     Effort = 12,
                     Title = "BER"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q3-2020"},
+                    AssignedQuarter = new List<string> {"Q3-2020"},
                     Id = "234",
                     Effort = 12,
                     Title = "YQml"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q4-2020"},
+                    AssignedQuarter = new List<string> {"Q4-2020"},
                     Id = "234",
                     Effort = 12,
                     Title = "YQml"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q1-2020",  "Q2-2020",},
+                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020",},
                     Id = "123",
                     Effort = 12,
                     Title = "TIZU"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q3-2020",  "Q4-2020",},
+                    AssignedQuarter = new List<string> {"Q3-2020", "Q4-2020",},
                     Id = "123",
                     Effort = 12,
                     Title = "TIZU"
                 },
                 new Card()
                 {
-
-                    AssignedQuarter = new List<string>{ "Q2-2020",  "Q3-2020",},
+                    AssignedQuarter = new List<string> {"Q2-2020", "Q3-2020",},
                     Id = "123",
                     Effort = 12,
                     Title = "TIZU"

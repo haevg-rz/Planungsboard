@@ -24,12 +24,8 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
         <system:Int32 x:Key="QuarterCount">4</system:Int32>
-        <local:CardsQuarterFilterForSingles x:Key="CardsQuarterFilterForSingles">
-            
-        </local:CardsQuarterFilterForSingles>
-        <local:CardsQuarterFilterForMultiples x:Key="CardsQuarterFilterForMultiples">
-
-        </local:CardsQuarterFilterForMultiples>
+        <local:CardsQuarterFilterForSingles x:Key="CardsQuarterFilterForSingles" />
+        <local:CardsQuarterFilterForMultiples x:Key="CardsQuarterFilterForMultiples" />
     </Window.Resources>
     <Grid Margin="10">
 
@@ -75,7 +71,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"  />
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
@@ -83,44 +79,49 @@
                                    VerticalAlignment="Center" Padding="10"
                                    FontWeight="Bold">
                             <TextBlock.LayoutTransform>
-                                <RotateTransform CenterX="0.5" CenterY="0.5" Angle="270"/>
+                                <RotateTransform CenterX="0.5" CenterY="0.5" Angle="270" />
                             </TextBlock.LayoutTransform>
                         </TextBlock>
 
-                        <Rectangle Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Fill="LightSteelBlue" Panel.ZIndex="-1"></Rectangle>
+                        <Rectangle Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Fill="LightSteelBlue"
+                                   Panel.ZIndex="-1" />
 
-                        <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0" Cards="{Binding Cards, Converter={StaticResource CardsQuarterFilterForMultiples}}" QuarterList="{Binding DataContext.DisplayQuarters, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}" Margin="0,5,0,0" />
-                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1"  Margin="0,0,0,5">
+                        <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0"
+                                                    Cards="{Binding Cards, Converter={StaticResource CardsQuarterFilterForMultiples}}"
+                                                    QuarterList="{Binding DataContext.DisplayQuarters, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
+                                                    Margin="0,5,0,0" />
+                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,5">
                             <userControls:CardsWarpPanel.Quarter1Cards>
                                 <MultiBinding Converter="{StaticResource CardsQuarterFilterForSingles}">
-                                    <Binding Path="Cards"></Binding>
+                                    <Binding Path="Cards" />
                                     <Binding Path="DataContext.DisplayQuarters[0]"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 </MultiBinding>
                             </userControls:CardsWarpPanel.Quarter1Cards>
                             <userControls:CardsWarpPanel.Quarter2Cards>
                                 <MultiBinding Converter="{StaticResource CardsQuarterFilterForSingles}">
-                                    <Binding Path="Cards"></Binding>
+                                    <Binding Path="Cards" />
                                     <Binding Path="DataContext.DisplayQuarters[1]"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 </MultiBinding>
                             </userControls:CardsWarpPanel.Quarter2Cards>
                             <userControls:CardsWarpPanel.Quarter3Cards>
                                 <MultiBinding Converter="{StaticResource CardsQuarterFilterForSingles}">
-                                    <Binding Path="Cards"></Binding>
+                                    <Binding Path="Cards" />
                                     <Binding Path="DataContext.DisplayQuarters[2]"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 </MultiBinding>
                             </userControls:CardsWarpPanel.Quarter3Cards>
                             <userControls:CardsWarpPanel.Quarter4Cards>
                                 <MultiBinding Converter="{StaticResource CardsQuarterFilterForSingles}">
-                                    <Binding Path="Cards"></Binding>
+                                    <Binding Path="Cards" />
                                     <Binding Path="DataContext.DisplayQuarters[3]"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 </MultiBinding>
                             </userControls:CardsWarpPanel.Quarter4Cards>
                         </userControls:CardsWarpPanel>
-                        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="LightGray" BorderThickness="0.5"></Border>
+                        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                BorderBrush="LightGray" BorderThickness="0.5" />
 
                     </Grid>
                 </DataTemplate>

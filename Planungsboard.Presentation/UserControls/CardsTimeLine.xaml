@@ -28,7 +28,8 @@
                                 <Binding Path="ActualWidth"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 <Binding Path="." />
-                                <Binding Path="QuarterList" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}" />
+                                <Binding Path="QuarterList"
+                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}" />
                             </MultiBinding>
                         </userControls:Card.Margin>
                     </userControls:Card>

@@ -28,7 +28,7 @@ namespace Planungsboard.Presentation
             {
                 var actualWidth = (double) values[0];
                 var viewModel = (Card) values[1];
-                var quarters =  values[2] as List<string>;
+                var quarters = values[2] as List<string>;
 
                 var sectionWidth = actualWidth / quarters.Count;
 
@@ -42,7 +42,7 @@ namespace Planungsboard.Presentation
             catch (Exception e)
             {
                 Debug.WriteLine(e.ToString());
-                return new Thickness(50,5,50,5);
+                return new Thickness(50, 5, 50, 5);
             }
         }
 

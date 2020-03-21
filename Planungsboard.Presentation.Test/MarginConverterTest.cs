@@ -18,8 +18,8 @@ namespace Planungsboard.Presentation.Test
             #region Arrange
 
             double actualWidth = 1000;
-            Card card = new Card(){AssignedQuarter = new List<string>(){quarter}};
-            List<string> quarters = new List<string>() {"1", "2", "3", "4" };
+            Card card = new Card() {AssignedQuarter = new List<string>() {quarter}};
+            List<string> quarters = new List<string>() {"1", "2", "3", "4"};
 
             #endregion
 
@@ -47,8 +47,8 @@ namespace Planungsboard.Presentation.Test
             #region Arrange
 
             double actualWidth = 1000;
-            Card card = new Card() { AssignedQuarter = new List<string>(quarter.Split(','))};
-            List<string> quarters = new List<string>() { "1", "2", "3", "4" };
+            Card card = new Card() {AssignedQuarter = new List<string>(quarter.Split(','))};
+            List<string> quarters = new List<string>() {"1", "2", "3", "4"};
 
             #endregion
 

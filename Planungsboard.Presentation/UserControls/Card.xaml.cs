@@ -21,7 +21,6 @@ namespace Planungsboard.Presentation.UserControls
         public Card()
         {
             InitializeComponent();
-            
         }
 
         public static readonly DependencyProperty ItemProperty = DependencyProperty.Register(
