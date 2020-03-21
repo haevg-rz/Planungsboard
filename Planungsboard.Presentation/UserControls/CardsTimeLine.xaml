@@ -13,7 +13,7 @@
         <local:MarginConverter x:Key="MarginConverter" />
         <system:Int32 x:Key="QuarterCount">4</system:Int32>
     </UserControl.Resources>
-    <Border>
+    <Border DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
         <ItemsControl ItemsSource="{Binding Cards}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
