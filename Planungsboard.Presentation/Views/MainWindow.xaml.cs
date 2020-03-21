@@ -26,9 +26,11 @@ namespace Planungsboard.Presentation
             InitializeComponent();
         }
 
-        private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        private void FrameworkElement_OnSizeChanged2(object sender, SizeChangedEventArgs e)
         {
-            ((MainViewModel) this.DataContext).TeamLabelWidth = e.NewSize.Width;
+            var grid =  sender as Grid;
+            var firstColumn = grid.ColumnDefinitions.FirstOrDefault();
+            ((MainViewModel) this.DataContext).TeamLabelWidth = firstColumn.ActualWidth;
         }
     }
 }
