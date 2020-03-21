@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Title}" HorizontalAlignment="Center" />
-            <Border Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="0.5" />
+            <Border Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="0.5" Margin="5,0,5,0" />
             <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding Effort}" HorizontalAlignment="Center" />
         </Grid>
     </Border>
