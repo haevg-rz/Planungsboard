@@ -14,7 +14,7 @@ namespace Planungsboard.Presentation
             var cards = values[0] as IEnumerable<Card>;
             var quarter = values[1] as string;
 
-            return cards.Where(c => c.AssignedQuarter!= null && c.AssignedQuarter.Any(q => q == quarter)).ToList();
+            return cards?.Where(c => c.AssignedQuarter!= null && c.AssignedQuarter.Any(q => q == quarter)).ToList();
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

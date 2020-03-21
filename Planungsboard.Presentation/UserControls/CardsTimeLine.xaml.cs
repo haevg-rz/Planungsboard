@@ -23,5 +23,14 @@ namespace Planungsboard.Presentation.UserControls
             get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(CardsProperty); }
             set { SetValue(CardsProperty, value); }
         }
+
+        public static readonly DependencyProperty QuarterListProperty = DependencyProperty.Register(
+            "QuarterList", typeof(List<string>), typeof(CardsTimeLine), new PropertyMetadata(default(List<string>)));
+
+        public List<string> QuarterList
+        {
+            get { return (List<string>) GetValue(QuarterListProperty); }
+            set { SetValue(QuarterListProperty, value); }
+        }
     }
 }

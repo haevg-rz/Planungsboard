@@ -27,8 +27,8 @@
                             <MultiBinding Converter="{StaticResource MarginConverter}">
                                 <Binding Path="ActualWidth"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
-                                <Binding Source="{StaticResource QuarterCount}" />
                                 <Binding Path="." />
+                                <Binding Path="QuarterList" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}" />
                             </MultiBinding>
                         </userControls:Card.Margin>
                     </userControls:Card>

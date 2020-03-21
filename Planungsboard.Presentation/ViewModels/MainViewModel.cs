@@ -59,7 +59,7 @@ namespace Planungsboard.Presentation.ViewModels
 
         private void LoadedCommandHandling()
         {
-           
+
         }
 
         #endregion
@@ -72,16 +72,31 @@ namespace Planungsboard.Presentation.ViewModels
             {
                 new Card()
                 {
-                    LeftMargin = 1,
-                    RightMargin = 2,
+
+                    AssignedQuarter = new List<string>{ "Q1-2020",  "Q2-2020",  "Q3-2020",  "Q4-2020",},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
+                },
+                                new Card()
+                {
+
+                    AssignedQuarter = new List<string>{   "Q2-2020",  "Q3-2020",  "Q4-2020",},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
+                },
+                                                new Card()
+                {
+
+                    AssignedQuarter = new List<string>{ "Q1-2020",  "Q2-2020",  "Q3-2020"},
                     Id = "123",
                     Effort = 12,
                     Title = "TIZU"
                 },
                 new Card()
                 {
-                    LeftMargin = 0,
-                    RightMargin = 0,
+
                     AssignedQuarter = new List<string>{ "Q1-2020"},
                     Id = "456",
                     Effort = 12,
@@ -89,28 +104,51 @@ namespace Planungsboard.Presentation.ViewModels
                 },
                 new Card()
                 {
-                    LeftMargin = 2,
-                    RightMargin = 1,
+
+                    AssignedQuarter = new List<string>{ "Q2-2020"},
                     Id = "789",
                     Effort = 12,
                     Title = "BER"
                 },
                 new Card()
                 {
-                    LeftMargin = 3,
-                    RightMargin = 0,
+
+                    AssignedQuarter = new List<string>{ "Q3-2020"},
                     Id = "234",
                     Effort = 12,
                     Title = "YQml"
                 },
                 new Card()
                 {
-                    LeftMargin = 4,
-                    RightMargin = 0,
+
                     AssignedQuarter = new List<string>{ "Q4-2020"},
                     Id = "234",
                     Effort = 12,
                     Title = "YQml"
+                },
+                new Card()
+                {
+
+                    AssignedQuarter = new List<string>{ "Q1-2020",  "Q2-2020",},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
+                },
+                new Card()
+                {
+
+                    AssignedQuarter = new List<string>{ "Q3-2020",  "Q4-2020",},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
+                },
+                new Card()
+                {
+
+                    AssignedQuarter = new List<string>{ "Q2-2020",  "Q3-2020",},
+                    Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
                 },
             };
         }
@@ -121,8 +159,6 @@ namespace Planungsboard.Presentation.ViewModels
 
     public class Card
     {
-        public double LeftMargin { get; set; }
-        public double RightMargin { get; set; }
         public string Id { get; set; }
         public string Title { get; set; }
         public int Effort { get; set; }
