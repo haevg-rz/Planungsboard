@@ -76,8 +76,8 @@
                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Path=Name}"
                                    VerticalAlignment="Center" SizeChanged="FrameworkElement_OnSizeChanged" Padding="10" />
 
-                        <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0" Cards="{Binding Cards}" />
-                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1"
+                        <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0" Cards="{Binding Cards}" Margin="0,5,0,0" />
+                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1"  Margin="0,0,0,5"
                                                      VisualQuarter1="{Binding Cards}"
                                                      VisualQuarter2="{Binding Cards}"
                                                      VisualQuarter3="{Binding Cards}"
