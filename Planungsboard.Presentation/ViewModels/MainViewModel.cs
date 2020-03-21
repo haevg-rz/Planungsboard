@@ -75,24 +75,32 @@ namespace Planungsboard.Presentation.ViewModels
                     LeftMargin = 1,
                     RightMargin = 2,
                     Id = "123",
+                    Effort = 12,
+                    Title = "TIZU"
                 },
                 new Card()
                 {
                     LeftMargin = 0,
                     RightMargin = 0,
                     Id = "456",
+                    Effort = 12,
+                    Title = "TuFp"
                 },
                 new Card()
                 {
                     LeftMargin = 2,
                     RightMargin = 1,
                     Id = "789",
+                    Effort = 12,
+                    Title = "BER"
                 },
                 new Card()
                 {
                     LeftMargin = 3,
                     RightMargin = 0,
                     Id = "234",
+                    Effort = 12,
+                    Title = "YQml"
                 },
             };
         }
@@ -106,6 +114,8 @@ namespace Planungsboard.Presentation.ViewModels
         public double LeftMargin { get; set; }
         public double RightMargin { get; set; }
         public string Id { get; set; }
+        public string Title { get; set; }
+        public int Effort { get; set; }
     }
 
     public class Team

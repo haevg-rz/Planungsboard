@@ -13,7 +13,7 @@
         <local:MarginConverter x:Key="MarginConvert" />
         <system:Int32 x:Key="QuarterCount">4</system:Int32>
     </UserControl.Resources>
-    <Border BorderBrush="Red" BorderThickness="0.5">
+    <Border>
         <ItemsControl ItemsSource="{Binding Cards}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -22,17 +22,16 @@
                             <Setter Property="HorizontalAlignment" Value="Left" />
                         </Style>
                     </DataTemplate.Resources>
-                    <Border BorderBrush="Red" BorderThickness="0.1" Background="Beige">
-                        <Border.Margin>
+                    <userControls:Card Item="{Binding}">
+                        <userControls:Card.Margin>
                             <MultiBinding Converter="{StaticResource MarginConvert}">
                                 <Binding Path="ActualWidth"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 <Binding Source="{StaticResource QuarterCount}" />
                                 <Binding Path="." />
                             </MultiBinding>
-                        </Border.Margin>
-                        <TextBlock Text="{Binding Path=Id}" />
-                    </Border>
+                        </userControls:Card.Margin>
+                    </userControls:Card>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

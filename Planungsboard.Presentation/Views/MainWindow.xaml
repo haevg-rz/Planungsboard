@@ -8,7 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:userControls="clr-namespace:Planungsboard.Presentation.UserControls"
         mc:Ignorable="d"
-        Title="Planungsboard" Height="450" Width="800"
+        Title="Planungsboard" Height="589" Width="1024"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
 
     <i:Interaction.Triggers>
@@ -63,7 +63,7 @@
                             <Setter Property="HorizontalAlignment" Value="Left" />
                         </Style>
                     </DataTemplate.Resources>
-                    <Grid>
+                    <Grid Margin="0,10,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -77,11 +77,12 @@
                                    VerticalAlignment="Center" SizeChanged="FrameworkElement_OnSizeChanged" Padding="10" />
 
                         <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0" Cards="{Binding Cards}" />
-                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" 
+                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1"
                                                      VisualQuarter1="{Binding Cards}"
                                                      VisualQuarter2="{Binding Cards}"
                                                      VisualQuarter3="{Binding Cards}"
                                                      VisualQuarter4="{Binding Cards}" />
+                        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="LightGray" BorderThickness="0.5"></Border>
 
                     </Grid>
                 </DataTemplate>
