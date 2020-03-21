@@ -10,7 +10,7 @@
 
              d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance userControls:CardsTimeLine}">
     <UserControl.Resources>
-        <local:MarginConverter x:Key="MarginConvert" />
+        <local:MarginConverter x:Key="MarginConverter" />
         <system:Int32 x:Key="QuarterCount">4</system:Int32>
     </UserControl.Resources>
     <Border>
@@ -24,7 +24,7 @@
                     </DataTemplate.Resources>
                     <userControls:Card Item="{Binding}">
                         <userControls:Card.Margin>
-                            <MultiBinding Converter="{StaticResource MarginConvert}">
+                            <MultiBinding Converter="{StaticResource MarginConverter}">
                                 <Binding Path="ActualWidth"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
                                 <Binding Source="{StaticResource QuarterCount}" />

@@ -34,19 +34,19 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <ItemsControl Grid.Column="0"
-                          ItemsSource="{Binding VisualQuarter1, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter1Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                           Style="{StaticResource ItemsControlStyle}">
             </ItemsControl>
             <ItemsControl Grid.Column="1"
-                          ItemsSource="{Binding VisualQuarter2, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter2Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                           Style="{StaticResource ItemsControlStyle}">
             </ItemsControl>
             <ItemsControl Grid.Column="2"
-                          ItemsSource="{Binding VisualQuarter3, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter3Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                           Style="{StaticResource ItemsControlStyle}">
             </ItemsControl>
             <ItemsControl Grid.Column="3"
-                          ItemsSource="{Binding VisualQuarter4, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter4Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                           Style="{StaticResource ItemsControlStyle}">
             </ItemsControl>
         </Grid>

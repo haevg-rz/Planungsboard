@@ -82,6 +82,7 @@ namespace Planungsboard.Presentation.ViewModels
                 {
                     LeftMargin = 0,
                     RightMargin = 0,
+                    AssignedQuarter = new List<string>{ "Q1-2020"},
                     Id = "456",
                     Effort = 12,
                     Title = "TuFp"
@@ -102,6 +103,15 @@ namespace Planungsboard.Presentation.ViewModels
                     Effort = 12,
                     Title = "YQml"
                 },
+                new Card()
+                {
+                    LeftMargin = 4,
+                    RightMargin = 0,
+                    AssignedQuarter = new List<string>{ "Q4-2020"},
+                    Id = "234",
+                    Effort = 12,
+                    Title = "YQml"
+                },
             };
         }
 
@@ -116,6 +126,7 @@ namespace Planungsboard.Presentation.ViewModels
         public string Id { get; set; }
         public string Title { get; set; }
         public int Effort { get; set; }
+        public List<string> AssignedQuarter { get; set; }
     }
 
     public class Team
