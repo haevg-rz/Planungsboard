@@ -76,11 +76,12 @@
                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Path=Name}"
                                    VerticalAlignment="Center" SizeChanged="FrameworkElement_OnSizeChanged" Padding="10" />
 
-                        <local:CardsTimeLine Grid.Column="1" Grid.Row="0" Visuals="{Binding Visuals}" />
-                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" VisualQuarter1="{Binding Visuals}"
-                                                     VisualQuarter2="{Binding Visuals}"
-                                                     VisualQuarter3="{Binding Visuals}"
-                                                     VisualQuarter4="{Binding Visuals}" />
+                        <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0" Cards="{Binding Cards}" />
+                        <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" 
+                                                     VisualQuarter1="{Binding Cards}"
+                                                     VisualQuarter2="{Binding Cards}"
+                                                     VisualQuarter3="{Binding Cards}"
+                                                     VisualQuarter4="{Binding Cards}" />
 
                     </Grid>
                 </DataTemplate>

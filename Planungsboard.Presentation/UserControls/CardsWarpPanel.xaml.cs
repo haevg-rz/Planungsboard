@@ -24,38 +24,38 @@ namespace Planungsboard.Presentation.UserControls
         }
 
         public static readonly DependencyProperty VisualQuarter1Property = DependencyProperty.Register(
-            "VisualQuarter1", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>)));
+            "VisualQuarter1", typeof(List<Planungsboard.Presentation.ViewModels.Card>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Card>)));
 
-        public List<Planungsboard.Presentation.ViewModels.Visual> VisualQuarter1
+        public List<Planungsboard.Presentation.ViewModels.Card> VisualQuarter1
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Visual>) GetValue(VisualQuarter1Property); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(VisualQuarter1Property); }
             set { SetValue(VisualQuarter1Property, value); }
         }
 
         public static readonly DependencyProperty VisualQuarter2Property = DependencyProperty.Register(
-            "VisualQuarter2", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>)));
+            "VisualQuarter2", typeof(List<Planungsboard.Presentation.ViewModels.Card>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Card>)));
 
-        public List<Planungsboard.Presentation.ViewModels.Visual> VisualQuarter2
+        public List<Planungsboard.Presentation.ViewModels.Card> VisualQuarter2
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Visual>) GetValue(VisualQuarter2Property); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(VisualQuarter2Property); }
             set { SetValue(VisualQuarter2Property, value); }
         }
 
         public static readonly DependencyProperty VisualQuarter3Property = DependencyProperty.Register(
-            "VisualQuarter3", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>)));
+            "VisualQuarter3", typeof(List<Planungsboard.Presentation.ViewModels.Card>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Card>)));
 
-        public List<Planungsboard.Presentation.ViewModels.Visual> VisualQuarter3
+        public List<Planungsboard.Presentation.ViewModels.Card> VisualQuarter3
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Visual>) GetValue(VisualQuarter3Property); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(VisualQuarter3Property); }
             set { SetValue(VisualQuarter3Property, value); }
         }
 
         public static readonly DependencyProperty VisualQuarter4Property = DependencyProperty.Register(
-            "VisualQuarter4", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>)));
+            "VisualQuarter4", typeof(List<Planungsboard.Presentation.ViewModels.Card>), typeof(CardsWarpPanel), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Card>)));
 
-        public List<Planungsboard.Presentation.ViewModels.Visual> VisualQuarter4
+        public List<Planungsboard.Presentation.ViewModels.Card> VisualQuarter4
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Visual>) GetValue(VisualQuarter4Property); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(VisualQuarter4Property); }
             set { SetValue(VisualQuarter4Property, value); }
         }
     }

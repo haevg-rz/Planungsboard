@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace Planungsboard.Presentation
+namespace Planungsboard.Presentation.UserControls
 {
     /// <summary>
     /// Interaktionslogik für CardsTimeLine.xaml
@@ -23,17 +14,14 @@ namespace Planungsboard.Presentation
             InitializeComponent();
         }
 
-        public static readonly DependencyProperty VisualsProperty = DependencyProperty.Register(
-            "Visuals", typeof(List<Planungsboard.Presentation.ViewModels.Visual>), typeof(CardsTimeLine), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Visual>), PropertyChangedCallback));
+        public static readonly DependencyProperty CardsProperty = DependencyProperty.Register(
+            "Cards", typeof(List<Planungsboard.Presentation.ViewModels.Card>), typeof(CardsTimeLine), new PropertyMetadata(default(List<Planungsboard.Presentation.ViewModels.Card>)));
 
-        private static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-        }
 
-        public List<Planungsboard.Presentation.ViewModels.Visual> Visuals
+        public List<Planungsboard.Presentation.ViewModels.Card> Cards
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Visual>) GetValue(VisualsProperty); }
-            set { SetValue(VisualsProperty, value); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(CardsProperty); }
+            set { SetValue(CardsProperty, value); }
         }
     }
 }
