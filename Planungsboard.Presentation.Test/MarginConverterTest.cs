@@ -65,5 +65,32 @@ namespace Planungsboard.Presentation.Test
 
             #endregion
         }
+
+        [Theory]
+        [InlineData("1,2,3,4", 0, 500)]
+        [InlineData("5,6,7,8", 500, 0)]
+        public void Convert_MultiplesOutOfRange(string quarter, double left, double right)
+        {
+            #region Arrange
+
+            double actualWidth = 1000;
+            Card card = new Card() {AssignedQuarter = new List<string>(quarter.Split(','))};
+            List<string> quarters = new List<string>() {"3", "4", "5", "6"};
+
+            #endregion
+
+            #region Act
+
+            var thickness = new MarginConverter().Convert(actualWidth, card, quarters);
+
+            #endregion
+
+            #region Assert
+
+            thickness.Left.Should().Be(left);
+            thickness.Right.Should().Be(right);
+
+            #endregion
+        }
     }
 }
