@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Media.Media3D;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -13,6 +14,8 @@ namespace Planungsboard.Presentation.ViewModels
         public MainViewModel()
         {
             LoadedCommand = new RelayCommand(LoadedCommandHandling);
+            QuarterBackCommand = new RelayCommand(QuarterBackCommandHandling);
+            QuarterNextCommand = new RelayCommand(QuarterNextCommandHandling);
 
             this.DisplayQuarters = new List<string>
             {
@@ -37,10 +40,72 @@ namespace Planungsboard.Presentation.ViewModels
             };
         }
 
+        private void QuarterNextCommandHandling()
+        {
+            var newQuarterList = new List<string>();
+
+            foreach (var displayQuarter in this.DisplayQuarters)
+            {
+                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                if (quarter == 4)
+                {
+                    quarter = 1;
+                    year += 1;
+                }
+                else
+                {
+                    quarter += 1;
+                }
+
+                newQuarterList.Add($"Q{quarter}-{year}");
+            }
+
+            this.DisplayQuarters = newQuarterList;
+        }
+
+        private void QuarterBackCommandHandling()
+        {
+            var newQuarterList = new List<string>();
+
+            foreach (var displayQuarter in this.DisplayQuarters)
+            {
+                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                if (quarter == 1)
+                {
+                    quarter = 4;
+                    year -= 1;
+                }
+                else
+                {
+                    quarter -= 1;
+                }
+
+                newQuarterList.Add($"Q{quarter}-{year}");
+            }
+
+            this.DisplayQuarters = newQuarterList;
+        }
+
+        private (int quarter, int year) ConvertFromQuater(string input)
+        {
+            var quarter = Int32.Parse(input[1].ToString());
+            var year = Int32.Parse(input.Substring(3, 4));
+
+            return (quarter, year);
+        }
+
         #region Properties
 
-        public List<String> DisplayQuarters { get; set; }
+        private List<string> displayQuarters;
+
+        public List<string> DisplayQuarters
+        {
+            get => displayQuarters;
+            set => base.Set(ref this.displayQuarters, value);
+        }
+
         public List<Team> Teams { get; set; }
+
         private double teamLabelWidth;
 
         public double TeamLabelWidth
@@ -54,6 +119,8 @@ namespace Planungsboard.Presentation.ViewModels
         #region Commands
 
         public RelayCommand LoadedCommand { get; set; }
+        public RelayCommand QuarterNextCommand { get; set; }
+        public RelayCommand QuarterBackCommand { get; set; }
 
         #endregion
 

@@ -45,7 +45,7 @@
             <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding DisplayQuarters[0]}"
                        Style="{StaticResource QuarterStyle}" />
             <Button Grid.Column="1" Grid.Row="0" Content="←" HorizontalAlignment="Left" VerticalAlignment="Center"
-                    Padding="5" />
+                    Padding="5" Command="{Binding QuarterBackCommand}" />
             <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding DisplayQuarters[1]}"
                        Style="{StaticResource QuarterStyle}" />
             <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding DisplayQuarters[2]}"
@@ -53,7 +53,7 @@
             <TextBlock Grid.Column="4" Grid.Row="0" Text="{Binding DisplayQuarters[3]}"
                        Style="{StaticResource QuarterStyle}" />
             <Button Grid.Column="4" Grid.Row="0" Content="→" HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Padding="5" />
+                    Padding="5" Command="{Binding QuarterNextCommand}" />
 
         </Grid>
 
