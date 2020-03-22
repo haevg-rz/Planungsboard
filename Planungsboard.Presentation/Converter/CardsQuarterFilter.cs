@@ -23,21 +23,26 @@ namespace Planungsboard.Presentation
         }
     }
 
-    public class CardsQuarterFilterForMultiples : IValueConverter
+    public class CardsQuarterFilterForMultiples : IMultiValueConverter
     {
-        public List<Card> Convert(IEnumerable<Card> cards)
+        public List<Card> Convert(IEnumerable<Card> cards, IEnumerable<string> quarters)
         {
-            return Convert(cards, null, null, null) as List<Card>;
+            return Convert(new Object[]{ cards , quarters }, null, null, null) as List<Card>;
         }
 
-        public object Convert(object values, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            var cards = values as IEnumerable<Card>;
-            var r = cards?.Where(c => c.AssignedQuarter != null && c.AssignedQuarter.Count > 1).ToList();
+            var cards = values[0] as IEnumerable<Card>;
+            var quarters = values[1] as IEnumerable<string>;
+            
+            var r = cards?.Where(c => c.AssignedQuarter != null 
+                                      && c.AssignedQuarter.Count > 1
+                                      && c.AssignedQuarter.Intersect(quarters).Any()
+                                      ).ToList();
             return r;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
