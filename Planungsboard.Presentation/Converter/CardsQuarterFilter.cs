@@ -25,6 +25,11 @@ namespace Planungsboard.Presentation
 
     public class CardsQuarterFilterForMultiples : IValueConverter
     {
+        public List<Card> Convert(IEnumerable<Card> cards)
+        {
+            return Convert(cards, null, null, null) as List<Card>;
+        }
+
         public object Convert(object values, Type targetType, object parameter, CultureInfo culture)
         {
             var cards = values as IEnumerable<Card>;
