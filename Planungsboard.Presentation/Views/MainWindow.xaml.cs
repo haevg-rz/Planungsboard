@@ -28,7 +28,7 @@ namespace Planungsboard.Presentation
 
         private void FrameworkElement_OnSizeChanged2(object sender, SizeChangedEventArgs e)
         {
-            var grid =  sender as Grid;
+            var grid = sender as Grid;
             var firstColumn = grid.ColumnDefinitions.FirstOrDefault();
             ((MainViewModel) this.DataContext).TeamLabelWidth = firstColumn.ActualWidth;
         }

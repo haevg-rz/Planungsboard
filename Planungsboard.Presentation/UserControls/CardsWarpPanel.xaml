@@ -19,7 +19,7 @@
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <local:Card Item="{Binding}" Margin="2"></local:Card>
+                        <local:Card Item="{Binding}" Margin="2" />
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
@@ -34,21 +34,17 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <ItemsControl Grid.Column="0"
-                          ItemsSource="{Binding VisualQuarter1, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                          Style="{StaticResource ItemsControlStyle}">
-            </ItemsControl>
+                          ItemsSource="{Binding Quarter1Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          Style="{StaticResource ItemsControlStyle}" />
             <ItemsControl Grid.Column="1"
-                          ItemsSource="{Binding VisualQuarter2, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                          Style="{StaticResource ItemsControlStyle}">
-            </ItemsControl>
+                          ItemsSource="{Binding Quarter2Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          Style="{StaticResource ItemsControlStyle}" />
             <ItemsControl Grid.Column="2"
-                          ItemsSource="{Binding VisualQuarter3, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                          Style="{StaticResource ItemsControlStyle}">
-            </ItemsControl>
+                          ItemsSource="{Binding Quarter3Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          Style="{StaticResource ItemsControlStyle}" />
             <ItemsControl Grid.Column="3"
-                          ItemsSource="{Binding VisualQuarter4, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                          Style="{StaticResource ItemsControlStyle}">
-            </ItemsControl>
+                          ItemsSource="{Binding Quarter4Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          Style="{StaticResource ItemsControlStyle}" />
         </Grid>
     </Border>
 </UserControl>

@@ -1,27 +1,48 @@
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Documents;
 using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation
 {
     public class MarginConverter : IMultiValueConverter
     {
+        public Thickness Convert(double actualWidth, Card card, List<string> quarters)
+        {
+            return (Thickness) Convert(new object[]
+            {
+                actualWidth,
+                card,
+                quarters
+            }, null, null, null);
+        }
+
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             try
             {
                 var actualWidth = (double) values[0];
-                var sections = (int) values[1];
-                var viewModel = (Card) values[2];
-                var sectionWidth = actualWidth / sections;
+                var viewModel = (Card) values[1];
+                var quarters = values[2] as List<string>;
 
-                return new Thickness(sectionWidth * viewModel.LeftMargin, 2, sectionWidth * viewModel.RightMargin, 0);
+                var sectionWidth = actualWidth / quarters.Count;
+
+                var leftIndex = quarters.IndexOf(viewModel.AssignedQuarter.OrderBy(s => s).First());
+                var rightIndex = quarters.IndexOf(viewModel.AssignedQuarter.OrderBy(s => s).Last());
+
+                var left = sectionWidth * leftIndex;
+                var right = sectionWidth * (quarters.Count - (rightIndex + 1));
+                return new Thickness(left, 2, right, 0);
             }
             catch (Exception e)
             {
-                return new Thickness();
+                Debug.WriteLine(e.ToString());
+                return new Thickness(50, 5, 50, 5);
             }
         }
 
