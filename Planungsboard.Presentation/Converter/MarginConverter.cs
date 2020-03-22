@@ -32,8 +32,10 @@ namespace Planungsboard.Presentation
 
                 var sectionWidth = actualWidth / quarters.Count;
 
-                var leftIndex = quarters.IndexOf(viewModel.AssignedQuarter.OrderBy(s => s).First());
-                var rightIndex = quarters.IndexOf(viewModel.AssignedQuarter.OrderBy(s => s).Last());
+                var intersectQuarters = quarters.Intersect(viewModel.AssignedQuarter).ToList();
+
+                var leftIndex = quarters.IndexOf(intersectQuarters.OrderBy(s => s).First());
+                var rightIndex = quarters.IndexOf(intersectQuarters.OrderBy(s => s).Last());
 
                 var left = sectionWidth * leftIndex;
                 var right = sectionWidth * (quarters.Count - (rightIndex + 1));
