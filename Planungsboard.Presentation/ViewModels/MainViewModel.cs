@@ -25,19 +25,31 @@ namespace Planungsboard.Presentation.ViewModels
                 "Q4-2020",
             };
 
-            this.Teams = new List<Team>
+            var teams = new List<Team>
             {
                 new Team
                 {
                     Name = "Dev-Team #1",
                     Cards = CreateDebugData_Cards(),
+                    Color = "#008080",
                 },
                 new Team
                 {
                     Name = "Dev-Team #2",
                     Cards = CreateDebugData_Cards(),
+                    Color = "#E8A88A",
+                },
+                new Team
+                {
+                    Name = "Dev-Team #3",
+                    Cards = CreateDebugData_Cards(),
+                    Color = "#003087",
                 },
             };
+            teams.ForEach(team => team.SetColor());
+            this.Teams = teams;
+
+            
         }
 
         private void QuarterNextCommandHandling()
@@ -221,6 +233,8 @@ namespace Planungsboard.Presentation.ViewModels
                 debugDataCard.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
             }
 
+
+
             return debugDataCards;
         }
 
@@ -234,11 +248,21 @@ namespace Planungsboard.Presentation.ViewModels
         public string Title { get; set; }
         public int Effort { get; set; }
         public List<string> AssignedQuarter { get; set; }
+        public string Color { get; set; }
     }
 
     public class Team
     {
         public string Name { get; set; }
         public List<Card> Cards { get; set; }
+        public string Color { get; set; }
+
+        public void SetColor()
+        {
+            foreach (var card in Cards)
+            {
+                card.Color = this.Color;
+            }
+        }
     }
 }

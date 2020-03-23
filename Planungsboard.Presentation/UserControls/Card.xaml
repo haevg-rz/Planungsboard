@@ -7,10 +7,8 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:Card}"
              d:DesignHeight="100" d:DesignWidth="200">
-    <UserControl.Resources>
-        <Brush x:Key="CardBrush">DeepPink</Brush>
-    </UserControl.Resources>
-    <Border BorderBrush="{StaticResource CardBrush}" BorderThickness="5,2,2,2" CornerRadius="2">
+    
+        <Border BorderBrush="{Binding Color}" BorderThickness="5,2,2,2" CornerRadius="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -32,7 +30,7 @@
                                  Viewbox="0,0,5,5"  ViewboxUnits="Absolute">
                         <VisualBrush.Visual>
                             <Grid Background="Transparent">
-                                <Path Stroke="{StaticResource CardBrush}" Data="M 0 3 l 8 0"  Opacity="0.5"/>
+                                <Path Stroke="AliceBlue" Data="M 0 3 l 8 0"  Opacity="0.5"/>
                             </Grid>
                         </VisualBrush.Visual>
                         <VisualBrush.RelativeTransform>

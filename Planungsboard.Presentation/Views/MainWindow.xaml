@@ -8,7 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:userControls="clr-namespace:Planungsboard.Presentation.UserControls"
         mc:Ignorable="d"
-        Title="Planungsboard" Height="589" Width="1024"
+        Title="Planungsboard" Height="990" Width="1566"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
 
     <i:Interaction.Triggers>
@@ -82,8 +82,10 @@
                             </TextBlock.LayoutTransform>
                         </TextBlock>
 
-                        <Rectangle Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Fill="LightSteelBlue"
-                                   Panel.ZIndex="-1" />
+                        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+                                BorderBrush="{Binding Color}" 
+                                BorderThickness="2,2,10,2"
+                                Panel.ZIndex="-1" />
 
                         <userControls:CardsTimeLine Grid.Column="1" Grid.Row="0"
                                                     QuarterList="{Binding DataContext.DisplayQuarters, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
@@ -96,6 +98,7 @@
                                 </MultiBinding>
                             </userControls:CardsTimeLine.Cards>
                         </userControls:CardsTimeLine>
+
                         <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,5">
                             <userControls:CardsWarpPanel.Quarter1Cards>
                                 <MultiBinding Converter="{StaticResource CardsQuarterFilterForSingles}">
@@ -127,13 +130,12 @@
                             </userControls:CardsWarpPanel.Quarter4Cards>
                         </userControls:CardsWarpPanel>
                         <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
-                                BorderBrush="LightGray" BorderThickness="0.5" />
+                                BorderBrush="{Binding Color}" BorderThickness="2" />
 
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
 
     </Grid>
 </Window>
