@@ -1,0 +1,46 @@
+<UserControl x:Class="Planungsboard.Presentation.MenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             >
+
+    <UserControl.Resources>
+        <Style x:Key="BaseStyle" TargetType="FrameworkElement">
+            <Setter Property="Margin" Value="5,2.5,5,2.5" />
+        </Style>
+
+        <Style x:Key="SideBarButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Padding" Value="5,2.5,5,2.5" />
+        </Style>
+        <Style x:Key="SideBarHintStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="HorizontalAlignment" Value="Center" ></Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="https://github.com/haevg-rz/Planungsboard/" Style="{StaticResource SideBarHintStyle}" />
+            <Rectangle Height="100"></Rectangle>
+            <Button Content="New Team" Style="{StaticResource SideBarButtonStyle}" />
+            <Button Content="New Card" Style="{StaticResource SideBarButtonStyle}" />
+
+            <Separator Style="{StaticResource BaseStyle}" />
+
+            <Button Content="Save" Style="{StaticResource SideBarButtonStyle}" />
+            <Button Content="Load" Style="{StaticResource SideBarButtonStyle}" />
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Button Content="Help" Style="{StaticResource SideBarButtonStyle}" />
+            <Button Content="Toogle Sidebar" Style="{StaticResource SideBarButtonStyle}" />
+            <TextBlock Text="0.0.0" Style="{StaticResource SideBarHintStyle}" />
+        </StackPanel>
+    </Grid>
+
+</UserControl>

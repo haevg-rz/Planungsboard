@@ -26,7 +26,17 @@
         <local:CardsQuarterFilterForSingles x:Key="CardsQuarterFilterForSingles" />
         <local:CardsQuarterFilterForMultiples x:Key="CardsQuarterFilterForMultiples" />
     </Window.Resources>
-    <Grid Margin="10">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <local:MenuUserControl>
+
+        </local:MenuUserControl>
+
+        <Grid Grid.Column="1" Margin="10">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -137,5 +147,6 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
+    </Grid>
     </Grid>
 </Window>
