@@ -31,11 +31,19 @@ namespace Planungsboard.Presentation.ViewModels
                 {
                     Name = "Dev-Team #1",
                     Cards = CreateDebugData_Cards(),
+                    Color = "#008080",
                 },
                 new Team
                 {
                     Name = "Dev-Team #2",
                     Cards = CreateDebugData_Cards(),
+                    Color = "#E8A88A",
+                },
+                new Team
+                {
+                    Name = "Dev-Team #3",
+                    Cards = CreateDebugData_Cards(),
+                    Color = "#003087",
                 },
             };
         }
@@ -240,5 +248,6 @@ namespace Planungsboard.Presentation.ViewModels
     {
         public string Name { get; set; }
         public List<Card> Cards { get; set; }
+        public string Color { get; set; }
     }
 }
