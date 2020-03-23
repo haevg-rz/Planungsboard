@@ -98,6 +98,7 @@
                                 </MultiBinding>
                             </userControls:CardsTimeLine.Cards>
                         </userControls:CardsTimeLine>
+
                         <userControls:CardsWarpPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,5">
                             <userControls:CardsWarpPanel.Quarter1Cards>
                                 <MultiBinding Converter="{StaticResource CardsQuarterFilterForSingles}">
