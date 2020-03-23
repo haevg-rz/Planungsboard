@@ -24,7 +24,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock Text="https://github.com/haevg-rz/Planungsboard/" Style="{StaticResource SideBarHintStyle}" />
+            <Button Content="Open On GitHib" FontSize="5" Style="{StaticResource SideBarButtonStyle}" CommandParameter="https://github.com/haevg-rz/Planungsboard/" />
             <Rectangle Height="100"></Rectangle>
             <Button Content="New Team" Style="{StaticResource SideBarButtonStyle}" />
             <Button Content="New Card" Style="{StaticResource SideBarButtonStyle}" />
