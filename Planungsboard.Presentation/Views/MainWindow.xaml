@@ -8,7 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:userControls="clr-namespace:Planungsboard.Presentation.UserControls"
         mc:Ignorable="d"
-        Title="Planungsboard" Height="833" Width="1599"
+        Title="Planungsboard" Height="990" Width="1566"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
 
     <i:Interaction.Triggers>
@@ -130,13 +130,12 @@
                             </userControls:CardsWarpPanel.Quarter4Cards>
                         </userControls:CardsWarpPanel>
                         <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
-                                BorderBrush="LightGray" BorderThickness="0.5" />
+                                BorderBrush="{Binding Color}" BorderThickness="2" />
 
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
 
     </Grid>
 </Window>
