@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Media.Media3D;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using Planungsboard.Presentation.Views;
 
 namespace Planungsboard.Presentation.ViewModels
 {
@@ -16,6 +17,7 @@ namespace Planungsboard.Presentation.ViewModels
             LoadedCommand = new RelayCommand(LoadedCommandHandling);
             QuarterBackCommand = new RelayCommand(QuarterBackCommandHandling);
             QuarterNextCommand = new RelayCommand(QuarterNextCommandHandling);
+            NewTeamCommand = new RelayCommand(NewTeamCommandHandling);
 
             this.DisplayQuarters = new List<string>
             {
@@ -48,8 +50,6 @@ namespace Planungsboard.Presentation.ViewModels
             };
             teams.ForEach(team => team.SetColor());
             this.Teams = teams;
-
-            
         }
 
         private void QuarterNextCommandHandling()
@@ -73,6 +73,14 @@ namespace Planungsboard.Presentation.ViewModels
             }
 
             this.DisplayQuarters = newQuarterList;
+        }
+
+        private void NewTeamCommandHandling()
+        {
+            var newEntityWindows = new NewGenericEntityWindows<Team>();
+            newEntityWindows.ShowDialog();
+            
+            this.Teams.Add(newEntityWindows.Instance);
         }
 
         private void QuarterBackCommandHandling()
@@ -133,6 +141,8 @@ namespace Planungsboard.Presentation.ViewModels
         public RelayCommand LoadedCommand { get; set; }
         public RelayCommand QuarterNextCommand { get; set; }
         public RelayCommand QuarterBackCommand { get; set; }
+
+        public RelayCommand NewTeamCommand { get; set; }
 
         #endregion
 

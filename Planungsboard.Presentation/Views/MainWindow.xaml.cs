@@ -26,7 +26,7 @@ namespace Planungsboard.Presentation
             InitializeComponent();
         }
 
-        private void FrameworkElement_OnSizeChanged2(object sender, SizeChangedEventArgs e)
+        private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
             var grid = sender as Grid;
             var firstColumn = grid.ColumnDefinitions.FirstOrDefault();
