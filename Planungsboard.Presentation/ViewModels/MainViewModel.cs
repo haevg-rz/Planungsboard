@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -49,7 +50,7 @@ namespace Planungsboard.Presentation.ViewModels
                 },
             };
             teams.ForEach(team => team.SetColor());
-            this.Teams = teams;
+            this.Teams = new ObservableCollection<Team>(teams);
         }
 
         private (int quarter, int year) ConvertFromQuater(string input)
@@ -70,7 +71,7 @@ namespace Planungsboard.Presentation.ViewModels
             set => base.Set(ref this.displayQuarters, value);
         }
 
-        public List<Team> Teams { get; set; }
+        public ObservableCollection<Team> Teams { get; set; }
 
         private double teamLabelWidth;
 
@@ -125,7 +126,6 @@ namespace Planungsboard.Presentation.ViewModels
             if (windows.Result != null)
             {
                 this.Teams.Add(windows.Result);
-                base.RaisePropertyChanged(() => this.Teams);
             }
         }
 
