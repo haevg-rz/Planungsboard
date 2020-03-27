@@ -52,60 +52,6 @@ namespace Planungsboard.Presentation.ViewModels
             this.Teams = teams;
         }
 
-        private void QuarterNextCommandHandling()
-        {
-            var newQuarterList = new List<string>();
-
-            foreach (var displayQuarter in this.DisplayQuarters)
-            {
-                var (quarter, year) = ConvertFromQuater(displayQuarter);
-                if (quarter == 4)
-                {
-                    quarter = 1;
-                    year += 1;
-                }
-                else
-                {
-                    quarter += 1;
-                }
-
-                newQuarterList.Add($"Q{quarter}-{year}");
-            }
-
-            this.DisplayQuarters = newQuarterList;
-        }
-
-        private void NewTeamCommandHandling()
-        {
-            var newEntityWindows = new NewGenericEntityWindows<Team>();
-            newEntityWindows.ShowDialog();
-            
-            this.Teams.Add(newEntityWindows.Instance);
-        }
-
-        private void QuarterBackCommandHandling()
-        {
-            var newQuarterList = new List<string>();
-
-            foreach (var displayQuarter in this.DisplayQuarters)
-            {
-                var (quarter, year) = ConvertFromQuater(displayQuarter);
-                if (quarter == 1)
-                {
-                    quarter = 4;
-                    year -= 1;
-                }
-                else
-                {
-                    quarter -= 1;
-                }
-
-                newQuarterList.Add($"Q{quarter}-{year}");
-            }
-
-            this.DisplayQuarters = newQuarterList;
-        }
-
         private (int quarter, int year) ConvertFromQuater(string input)
         {
             var quarter = Int32.Parse(input[1].ToString());
@@ -147,6 +93,64 @@ namespace Planungsboard.Presentation.ViewModels
         #endregion
 
         #region Commands Handling
+
+        private void QuarterNextCommandHandling()
+        {
+            var newQuarterList = new List<string>();
+
+            foreach (var displayQuarter in this.DisplayQuarters)
+            {
+                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                if (quarter == 4)
+                {
+                    quarter = 1;
+                    year += 1;
+                }
+                else
+                {
+                    quarter += 1;
+                }
+
+                newQuarterList.Add($"Q{quarter}-{year}");
+            }
+
+            this.DisplayQuarters = newQuarterList;
+        }
+
+        private void NewTeamCommandHandling()
+        {
+            // TODO Don't access Windows in ViewModel
+            var windows = new NewGenericEntityWindows<Team>();
+            windows.ShowDialog();
+            if (windows.Result != null)
+            {
+                this.Teams.Add(windows.Result);
+                base.RaisePropertyChanged(() => this.Teams);
+            }
+        }
+
+        private void QuarterBackCommandHandling()
+        {
+            var newQuarterList = new List<string>();
+
+            foreach (var displayQuarter in this.DisplayQuarters)
+            {
+                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                if (quarter == 1)
+                {
+                    quarter = 4;
+                    year -= 1;
+                }
+                else
+                {
+                    quarter -= 1;
+                }
+
+                newQuarterList.Add($"Q{quarter}-{year}");
+            }
+
+            this.DisplayQuarters = newQuarterList;
+        }
 
         private void LoadedCommandHandling()
         {
@@ -242,8 +246,6 @@ namespace Planungsboard.Presentation.ViewModels
                 debugDataCard.Id = rnd.Next(10000, 99999).ToString();
                 debugDataCard.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
             }
-
-
 
             return debugDataCards;
         }
