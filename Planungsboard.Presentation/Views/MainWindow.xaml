@@ -65,7 +65,14 @@
         </Grid>
 
         <ItemsControl Grid.Row="1" ItemsSource="{Binding Teams}">
-            <ItemsControl.ItemTemplate>
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <ScrollViewer>
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ItemsControl.Template>
+                <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <DataTemplate.Resources>
                         <Style TargetType="TextBlock">
