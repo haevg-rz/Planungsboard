@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using FluentAssertions;
 using Planungsboard.Presentation.ViewModels;
 using Xunit;
@@ -68,14 +66,14 @@ namespace Planungsboard.Presentation.Test
         {
             #region Arrange
 
-            var card = new Card() { AssignedQuarter = new List<string>(assignedQuarterInline.Split(',')) };
+            var card = new Card() {AssignedQuarter = new List<string>(assignedQuarterInline.Split(','))};
             var quarters = new List<string>(quartersInline.Split(','));
 
             #endregion
 
             #region Act
 
-            var actualCards = new CardsQuarterFilterForMultiples().Convert(new List<Card>() { card }, quarters);
+            var actualCards = new CardsQuarterFilterForMultiples().Convert(new List<Card>() {card}, quarters);
 
             #endregion
 

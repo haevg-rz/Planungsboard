@@ -13,7 +13,7 @@
         </Style>
         <Style x:Key="SideBarHintStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseStyle}">
             <Setter Property="FontSize" Value="8" />
-            <Setter Property="HorizontalAlignment" Value="Center" ></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
 
     </UserControl.Resources>
@@ -21,12 +21,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Button Content="Open On GitHib" FontSize="5" Style="{StaticResource SideBarButtonStyle}" CommandParameter="https://github.com/haevg-rz/Planungsboard/" />
-            <Rectangle Height="100"></Rectangle>
-            <Button Content="New Team" Style="{StaticResource SideBarButtonStyle}" Command="{Binding Path=(viewModels:MainViewModel.NewTeamCommand)}" />
+            <Button Content="Open On GitHib" FontSize="5" Style="{StaticResource SideBarButtonStyle}"
+                    CommandParameter="https://github.com/haevg-rz/Planungsboard/" />
+            <Rectangle Height="100" />
+            <Button Content="New Team" Style="{StaticResource SideBarButtonStyle}"
+                    Command="{Binding Path=(viewModels:MainViewModel.NewTeamCommand)}" />
             <Button Content="New Card" Style="{StaticResource SideBarButtonStyle}" />
 
             <Separator Style="{StaticResource BaseStyle}" />

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Windows.Media.Media3D;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Planungsboard.Presentation.Views;
@@ -15,17 +12,17 @@ namespace Planungsboard.Presentation.ViewModels
     {
         public MainViewModel()
         {
-            LoadedCommand = new RelayCommand(LoadedCommandHandling);
-            QuarterBackCommand = new RelayCommand(QuarterBackCommandHandling);
-            QuarterNextCommand = new RelayCommand(QuarterNextCommandHandling);
-            NewTeamCommand = new RelayCommand(NewTeamCommandHandling);
+            this.LoadedCommand = new RelayCommand(this.LoadedCommandHandling);
+            this.QuarterBackCommand = new RelayCommand(this.QuarterBackCommandHandling);
+            this.QuarterNextCommand = new RelayCommand(this.QuarterNextCommandHandling);
+            this.NewTeamCommand = new RelayCommand(this.NewTeamCommandHandling);
 
             this.DisplayQuarters = new List<string>
             {
                 "Q1-2020",
                 "Q2-2020",
                 "Q3-2020",
-                "Q4-2020",
+                "Q4-2020"
             };
 
             var teams = new List<Team>
@@ -34,20 +31,20 @@ namespace Planungsboard.Presentation.ViewModels
                 {
                     Name = "Dev-Team #1",
                     Cards = CreateDebugData_Cards(),
-                    Color = "#008080",
+                    Color = "#008080"
                 },
                 new Team
                 {
                     Name = "Dev-Team #2",
                     Cards = CreateDebugData_Cards(),
-                    Color = "#E8A88A",
+                    Color = "#E8A88A"
                 },
                 new Team
                 {
                     Name = "Dev-Team #3",
                     Cards = CreateDebugData_Cards(),
-                    Color = "#003087",
-                },
+                    Color = "#003087"
+                }
             };
             teams.ForEach(team => team.SetColor());
             this.Teams = new ObservableCollection<Team>(teams);
@@ -55,11 +52,105 @@ namespace Planungsboard.Presentation.ViewModels
 
         private (int quarter, int year) ConvertFromQuater(string input)
         {
-            var quarter = Int32.Parse(input[1].ToString());
-            var year = Int32.Parse(input.Substring(3, 4));
+            var quarter = int.Parse(input[1].ToString());
+            var year = int.Parse(input.Substring(3, 4));
 
             return (quarter, year);
         }
+
+        #region Helper
+
+        private static List<Card> CreateDebugData_Cards()
+        {
+            var debugDataCards = new List<Card>
+            {
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020", "Q3-2020", "Q4-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q2-2020", "Q3-2020", "Q4-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020", "Q3-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q2-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q3-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q4-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q2-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q3-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q4-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q2-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q3-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q4-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q3-2020", "Q4-2020"}
+                },
+                new Card
+                {
+                    AssignedQuarter = new List<string> {"Q2-2020", "Q3-2020"}
+                }
+            };
+
+            var rnd = new Random();
+            var alpha = "qwertzuioplkjhgfdsayxcvbnm";
+            foreach (var debugDataCard in debugDataCards)
+            {
+                debugDataCard.Effort = rnd.Next(1, 10) ^ 2;
+                debugDataCard.Id = rnd.Next(10000, 99999).ToString();
+                debugDataCard.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
+            }
+
+            return debugDataCards;
+        }
+
+        #endregion
 
         #region Properties
 
@@ -67,8 +158,8 @@ namespace Planungsboard.Presentation.ViewModels
 
         public List<string> DisplayQuarters
         {
-            get => displayQuarters;
-            set => base.Set(ref this.displayQuarters, value);
+            get => this.displayQuarters;
+            set => this.Set(ref this.displayQuarters, value);
         }
 
         public ObservableCollection<Team> Teams { get; set; }
@@ -77,8 +168,8 @@ namespace Planungsboard.Presentation.ViewModels
 
         public double TeamLabelWidth
         {
-            get => teamLabelWidth;
-            set => base.Set(ref teamLabelWidth, value);
+            get => this.teamLabelWidth;
+            set => this.Set(ref this.teamLabelWidth, value);
         }
 
         #endregion
@@ -101,7 +192,7 @@ namespace Planungsboard.Presentation.ViewModels
 
             foreach (var displayQuarter in this.DisplayQuarters)
             {
-                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                var (quarter, year) = this.ConvertFromQuater(displayQuarter);
                 if (quarter == 4)
                 {
                     quarter = 1;
@@ -123,10 +214,7 @@ namespace Planungsboard.Presentation.ViewModels
             // TODO Don't access Windows in ViewModel
             var windows = new NewGenericEntityWindows<Team>();
             windows.ShowDialog();
-            if (windows.Result != null)
-            {
-                this.Teams.Add(windows.Result);
-            }
+            if (windows.Result != null) this.Teams.Add(windows.Result);
         }
 
         private void QuarterBackCommandHandling()
@@ -135,7 +223,7 @@ namespace Planungsboard.Presentation.ViewModels
 
             foreach (var displayQuarter in this.DisplayQuarters)
             {
-                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                var (quarter, year) = this.ConvertFromQuater(displayQuarter);
                 if (quarter == 1)
                 {
                     quarter = 4;
@@ -154,100 +242,6 @@ namespace Planungsboard.Presentation.ViewModels
 
         private void LoadedCommandHandling()
         {
-        }
-
-        #endregion
-
-        #region Helper
-
-        private static List<Card> CreateDebugData_Cards()
-        {
-            var debugDataCards = new List<Card>
-            {
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020", "Q3-2020", "Q4-2020",},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q2-2020", "Q3-2020", "Q4-2020",},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020", "Q3-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q1-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q2-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q3-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q4-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q1-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q2-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q3-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q4-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q1-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q2-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q3-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q4-2020"},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q1-2020", "Q2-2020",},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q3-2020", "Q4-2020",},
-                },
-                new Card
-                {
-                    AssignedQuarter = new List<string> {"Q2-2020", "Q3-2020",},
-                },
-            };
-
-            var rnd = new Random();
-            var alpha = "qwertzuioplkjhgfdsayxcvbnm";
-            foreach (var debugDataCard in debugDataCards)
-            {
-                debugDataCard.Effort = rnd.Next(1, 10) ^ 2;
-                debugDataCard.Id = rnd.Next(10000, 99999).ToString();
-                debugDataCard.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
-            }
-
-            return debugDataCards;
         }
 
         #endregion
@@ -273,14 +267,11 @@ namespace Planungsboard.Presentation.ViewModels
 
         public string Name { get; set; }
         public List<Card> Cards { get; set; }
-        public string Color { get; set; } 
+        public string Color { get; set; }
 
         public void SetColor()
         {
-            foreach (var card in Cards)
-            {
-                card.Color = this.Color;
-            }
+            foreach (var card in this.Cards) card.Color = this.Color;
         }
     }
 }

@@ -12,7 +12,8 @@
     <UserControl.Resources>
         <local:MarginConverter x:Key="MarginConverter" />
     </UserControl.Resources>
-    <Border Margin="2,0,0,2" DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
+    <Border Margin="2,0,0,2"
+            DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
         <ItemsControl ItemsSource="{Binding Cards}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>

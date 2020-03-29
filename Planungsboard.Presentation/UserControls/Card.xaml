@@ -7,8 +7,8 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:Card}"
              d:DesignHeight="100" d:DesignWidth="200">
-    
-        <Border BorderBrush="{Binding Color}" BorderThickness="5,2,2,2" CornerRadius="2">
+
+    <Border BorderBrush="{Binding Color}" BorderThickness="5,2,2,2" CornerRadius="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -25,12 +25,12 @@
 
             <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
                 <Rectangle.Fill>
-                    <VisualBrush TileMode="Tile" 
-                                 Viewport="0,0,5,5" ViewportUnits="Absolute" 
-                                 Viewbox="0,0,5,5"  ViewboxUnits="Absolute">
+                    <VisualBrush TileMode="Tile"
+                                 Viewport="0,0,5,5" ViewportUnits="Absolute"
+                                 Viewbox="0,0,5,5" ViewboxUnits="Absolute">
                         <VisualBrush.Visual>
                             <Grid Background="Transparent">
-                                <Path Stroke="AliceBlue" Data="M 0 3 l 8 0"  Opacity="0.5"/>
+                                <Path Stroke="AliceBlue" Data="M 0 3 l 8 0" Opacity="0.5" />
                             </Grid>
                         </VisualBrush.Visual>
                         <VisualBrush.RelativeTransform>

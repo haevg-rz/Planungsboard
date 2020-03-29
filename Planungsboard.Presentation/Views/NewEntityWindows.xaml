@@ -41,9 +41,11 @@
 
                                 <TextBlock Grid.Column="0" Grid.Row="1" Text="Color:"
                                            Style="{StaticResource NewEntityFramworkElementStyle}" />
-                                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox Grid.Column="1" Grid.Row="1"
+                                         Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}"
                                          Style="{StaticResource NewEntityFramworkElementStyle}" />
-                                <Rectangle Grid.Column="1" Grid.Row="2" Fill="{Binding Color}" MinHeight="15" MinWidth="10"
+                                <Rectangle Grid.Column="1" Grid.Row="2" Fill="{Binding Color}" MinHeight="15"
+                                           MinWidth="10"
                                            Style="{StaticResource NewEntityFramworkElementStyle}" />
                             </Grid>
                         </DataTemplate>
@@ -59,7 +61,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Save" Margin="10" Padding="10" Command="{Binding SaveCommand}" Click="CancelButton_OnClick" />
+            <Button Grid.Column="0" Content="Save" Margin="10" Padding="10" Command="{Binding SaveCommand}"
+                    Click="CancelButton_OnClick" />
             <Button Grid.Column="1" Content="Cancel" Margin="10" Padding="10" Click="CancelButton_OnClick" />
         </Grid>
 
