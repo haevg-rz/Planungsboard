@@ -265,9 +265,15 @@ namespace Planungsboard.Presentation.ViewModels
 
     public class Team
     {
+        public Team()
+        {
+            const string hex = "ABCDEF0123456789";
+            this.Color = "#" + Enumerable.Range(1, 6).Select(_ => hex.OrderBy(_ => Guid.NewGuid()).First().ToString()).Aggregate((s, s1) => s + s1);
+        }
+
         public string Name { get; set; }
         public List<Card> Cards { get; set; }
-        public string Color { get; set; }
+        public string Color { get; set; } 
 
         public void SetColor()
         {
