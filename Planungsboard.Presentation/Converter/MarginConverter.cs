@@ -14,7 +14,7 @@ namespace Planungsboard.Presentation
     {
         public Thickness Convert(double actualWidth, Card card, List<string> quarters)
         {
-            return (Thickness) Convert(new object[]
+            return (Thickness) this.Convert(new object[]
             {
                 actualWidth,
                 card,

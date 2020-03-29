@@ -15,10 +15,10 @@ namespace Planungsboard.Presentation.ViewModels
     {
         public MainViewModel()
         {
-            LoadedCommand = new RelayCommand(LoadedCommandHandling);
-            QuarterBackCommand = new RelayCommand(QuarterBackCommandHandling);
-            QuarterNextCommand = new RelayCommand(QuarterNextCommandHandling);
-            NewTeamCommand = new RelayCommand(NewTeamCommandHandling);
+            this.LoadedCommand = new RelayCommand(this.LoadedCommandHandling);
+            this.QuarterBackCommand = new RelayCommand(this.QuarterBackCommandHandling);
+            this.QuarterNextCommand = new RelayCommand(this.QuarterNextCommandHandling);
+            this.NewTeamCommand = new RelayCommand(this.NewTeamCommandHandling);
 
             this.DisplayQuarters = new List<string>
             {
@@ -67,8 +67,8 @@ namespace Planungsboard.Presentation.ViewModels
 
         public List<string> DisplayQuarters
         {
-            get => displayQuarters;
-            set => base.Set(ref this.displayQuarters, value);
+            get => this.displayQuarters;
+            set => this.Set(ref this.displayQuarters, value);
         }
 
         public ObservableCollection<Team> Teams { get; set; }
@@ -77,8 +77,8 @@ namespace Planungsboard.Presentation.ViewModels
 
         public double TeamLabelWidth
         {
-            get => teamLabelWidth;
-            set => base.Set(ref teamLabelWidth, value);
+            get => this.teamLabelWidth;
+            set => this.Set(ref this.teamLabelWidth, value);
         }
 
         #endregion
@@ -101,7 +101,7 @@ namespace Planungsboard.Presentation.ViewModels
 
             foreach (var displayQuarter in this.DisplayQuarters)
             {
-                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                var (quarter, year) = this.ConvertFromQuater(displayQuarter);
                 if (quarter == 4)
                 {
                     quarter = 1;
@@ -135,7 +135,7 @@ namespace Planungsboard.Presentation.ViewModels
 
             foreach (var displayQuarter in this.DisplayQuarters)
             {
-                var (quarter, year) = ConvertFromQuater(displayQuarter);
+                var (quarter, year) = this.ConvertFromQuater(displayQuarter);
                 if (quarter == 1)
                 {
                     quarter = 4;
@@ -271,7 +271,7 @@ namespace Planungsboard.Presentation.ViewModels
 
         public void SetColor()
         {
-            foreach (var card in Cards)
+            foreach (var card in this.Cards)
             {
                 card.Color = this.Color;
             }

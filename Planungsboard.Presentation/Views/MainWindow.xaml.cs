@@ -23,7 +23,7 @@ namespace Planungsboard.Presentation
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)

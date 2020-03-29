@@ -68,14 +68,14 @@ namespace Planungsboard.Presentation.Test
         {
             #region Arrange
 
-            var card = new Card() { AssignedQuarter = new List<string>(assignedQuarterInline.Split(',')) };
+            var card = new Card() {AssignedQuarter = new List<string>(assignedQuarterInline.Split(','))};
             var quarters = new List<string>(quartersInline.Split(','));
 
             #endregion
 
             #region Act
 
-            var actualCards = new CardsQuarterFilterForMultiples().Convert(new List<Card>() { card }, quarters);
+            var actualCards = new CardsQuarterFilterForMultiples().Convert(new List<Card>() {card}, quarters);
 
             #endregion
 

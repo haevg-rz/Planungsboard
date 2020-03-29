@@ -20,7 +20,7 @@ namespace Planungsboard.Presentation.UserControls
     {
         public CardsWarpPanel()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public static readonly DependencyProperty Quarter1CardsProperty = DependencyProperty.Register(
@@ -28,8 +28,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public List<Planungsboard.Presentation.ViewModels.Card> Quarter1Cards
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(Quarter1CardsProperty); }
-            set { SetValue(Quarter1CardsProperty, value); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) this.GetValue(Quarter1CardsProperty); }
+            set { this.SetValue(Quarter1CardsProperty, value); }
         }
 
         public static readonly DependencyProperty Quarter2CardsProperty = DependencyProperty.Register(
@@ -37,8 +37,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public List<Planungsboard.Presentation.ViewModels.Card> Quarter2Cards
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(Quarter2CardsProperty); }
-            set { SetValue(Quarter2CardsProperty, value); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) this.GetValue(Quarter2CardsProperty); }
+            set { this.SetValue(Quarter2CardsProperty, value); }
         }
 
         public static readonly DependencyProperty Quarter3CardsProperty = DependencyProperty.Register(
@@ -46,8 +46,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public List<Planungsboard.Presentation.ViewModels.Card> Quarter3Cards
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(Quarter3CardsProperty); }
-            set { SetValue(Quarter3CardsProperty, value); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) this.GetValue(Quarter3CardsProperty); }
+            set { this.SetValue(Quarter3CardsProperty, value); }
         }
 
         public static readonly DependencyProperty Quarter4CardsProperty = DependencyProperty.Register(
@@ -55,8 +55,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public List<Planungsboard.Presentation.ViewModels.Card> Quarter4Cards
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(Quarter4CardsProperty); }
-            set { SetValue(Quarter4CardsProperty, value); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) this.GetValue(Quarter4CardsProperty); }
+            set { this.SetValue(Quarter4CardsProperty, value); }
         }
     }
 }

@@ -19,10 +19,9 @@ namespace Planungsboard.Presentation.Views
     /// </summary>
     public partial class NewEntityWindows : Window
     {
-
         public NewEntityWindows()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public object Result
@@ -46,7 +45,7 @@ namespace Planungsboard.Presentation.Views
     {
         public NewGenericEntityWindows()
         {
-            base.Instance = new T();
+            this.Instance = new T();
         }
 
         public new T Result => base.Result as T;

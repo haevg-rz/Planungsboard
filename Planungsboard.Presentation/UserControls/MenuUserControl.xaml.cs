@@ -6,7 +6,7 @@ namespace Planungsboard.Presentation
     {
         public MenuUserControl()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

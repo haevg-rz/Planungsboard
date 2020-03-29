@@ -20,7 +20,7 @@ namespace Planungsboard.Presentation.UserControls
     {
         public Card()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public static readonly DependencyProperty ItemProperty = DependencyProperty.Register(
@@ -28,8 +28,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public ViewModels.Card Item
         {
-            get { return (ViewModels.Card) GetValue(ItemProperty); }
-            set { SetValue(ItemProperty, value); }
+            get { return (ViewModels.Card) this.GetValue(ItemProperty); }
+            set { this.SetValue(ItemProperty, value); }
         }
     }
 }

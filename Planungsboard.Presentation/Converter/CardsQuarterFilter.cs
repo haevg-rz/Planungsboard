@@ -27,18 +27,18 @@ namespace Planungsboard.Presentation
     {
         public List<Card> Convert(IEnumerable<Card> cards, IEnumerable<string> quarters)
         {
-            return Convert(new Object[]{ cards , quarters }, null, null, null) as List<Card>;
+            return this.Convert(new Object[] {cards, quarters}, null, null, null) as List<Card>;
         }
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var cards = values[0] as IEnumerable<Card>;
             var quarters = values[1] as IEnumerable<string>;
-            
-            var r = cards?.Where(c => c.AssignedQuarter != null 
+
+            var r = cards?.Where(c => c.AssignedQuarter != null
                                       && c.AssignedQuarter.Count > 1
                                       && c.AssignedQuarter.Intersect(quarters).Any()
-                                      ).ToList();
+            ).ToList();
             return r;
         }
 

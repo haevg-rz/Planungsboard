@@ -12,32 +12,32 @@ namespace Planungsboard.Presentation.ViewModels
 
         public NewEntityWindowsViewModel()
         {
-            if (base.IsInDesignMode)
+            if (this.IsInDesignMode)
             {
                 this.Instance = new Team() {Name = "TestTeam from NewEntityWindowsViewModel"};
                 // this.Instance = new Card() {Title = "Test Card"};
             }
             else
             {
-                this.SaveCommand = new RelayCommand(SaveCommandHandling);
+                this.SaveCommand = new RelayCommand(this.SaveCommandHandling);
             }
         }
 
         private void SaveCommandHandling()
         {
-            this.Result = Instance;
+            this.Result = this.Instance;
         }
 
         public RelayCommand SaveCommand { get; set; }
 
         public object Instance
         {
-            get => instance;
-            set { base.Set(ref instance, value); }
+            get => this.instance;
+            set { this.Set(ref this.instance, value); }
         }
 
         public object Result { get; set; }
 
-        public string TypeName => Instance?.GetType().Name ?? "Error";
+        public string TypeName => this.Instance?.GetType().Name ?? "Error";
     }
 }

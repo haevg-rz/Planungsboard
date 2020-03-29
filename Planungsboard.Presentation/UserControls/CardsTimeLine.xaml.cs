@@ -11,7 +11,7 @@ namespace Planungsboard.Presentation.UserControls
     {
         public CardsTimeLine()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public static readonly DependencyProperty CardsProperty = DependencyProperty.Register(
@@ -20,8 +20,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public List<Planungsboard.Presentation.ViewModels.Card> Cards
         {
-            get { return (List<Planungsboard.Presentation.ViewModels.Card>) GetValue(CardsProperty); }
-            set { SetValue(CardsProperty, value); }
+            get { return (List<Planungsboard.Presentation.ViewModels.Card>) this.GetValue(CardsProperty); }
+            set { this.SetValue(CardsProperty, value); }
         }
 
         public static readonly DependencyProperty QuarterListProperty = DependencyProperty.Register(
@@ -29,8 +29,8 @@ namespace Planungsboard.Presentation.UserControls
 
         public List<string> QuarterList
         {
-            get { return (List<string>) GetValue(QuarterListProperty); }
-            set { SetValue(QuarterListProperty, value); }
+            get { return (List<string>) this.GetValue(QuarterListProperty); }
+            set { this.SetValue(QuarterListProperty, value); }
         }
     }
 }
