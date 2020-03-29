@@ -3,9 +3,6 @@ using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation.Views
 {
-    /// <summary>
-    ///     Interaktionslogik für NewEntityWindows.xaml
-    /// </summary>
     public partial class NewEntityWindows : Window
     {
         public NewEntityWindows()
