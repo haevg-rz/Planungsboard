@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation.Views
 {
@@ -18,20 +19,36 @@ namespace Planungsboard.Presentation.Views
     /// </summary>
     public partial class NewEntityWindows : Window
     {
+
         public NewEntityWindows()
         {
             InitializeComponent();
         }
 
-   }
+        public object Result
+        {
+            get => new ViewModelLocator().NewEntityWindowsViewModel.Result;
+        }
 
-    public class NewGenericEntityWindows<T> : NewEntityWindows
+        public object Instance
+        {
+            get => new ViewModelLocator().NewEntityWindowsViewModel.Instance;
+            set => new ViewModelLocator().NewEntityWindowsViewModel.Instance = value;
+        }
+
+        private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+
+    public class NewGenericEntityWindows<T> : NewEntityWindows where T : class, new()
     {
         public NewGenericEntityWindows()
         {
-            
+            base.Instance = new T();
         }
 
-        public T Instance { get; set; }
+        public new T Result => base.Result as T;
     }
 }

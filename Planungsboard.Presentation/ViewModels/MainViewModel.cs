@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -49,8 +50,50 @@ namespace Planungsboard.Presentation.ViewModels
                 },
             };
             teams.ForEach(team => team.SetColor());
-            this.Teams = teams;
+            this.Teams = new ObservableCollection<Team>(teams);
         }
+
+        private (int quarter, int year) ConvertFromQuater(string input)
+        {
+            var quarter = Int32.Parse(input[1].ToString());
+            var year = Int32.Parse(input.Substring(3, 4));
+
+            return (quarter, year);
+        }
+
+        #region Properties
+
+        private List<string> displayQuarters;
+
+        public List<string> DisplayQuarters
+        {
+            get => displayQuarters;
+            set => base.Set(ref this.displayQuarters, value);
+        }
+
+        public ObservableCollection<Team> Teams { get; set; }
+
+        private double teamLabelWidth;
+
+        public double TeamLabelWidth
+        {
+            get => teamLabelWidth;
+            set => base.Set(ref teamLabelWidth, value);
+        }
+
+        #endregion
+
+        #region Commands
+
+        public RelayCommand LoadedCommand { get; set; }
+        public RelayCommand QuarterNextCommand { get; set; }
+        public RelayCommand QuarterBackCommand { get; set; }
+
+        public RelayCommand NewTeamCommand { get; set; }
+
+        #endregion
+
+        #region Commands Handling
 
         private void QuarterNextCommandHandling()
         {
@@ -77,10 +120,13 @@ namespace Planungsboard.Presentation.ViewModels
 
         private void NewTeamCommandHandling()
         {
-            var newEntityWindows = new NewGenericEntityWindows<Team>();
-            newEntityWindows.ShowDialog();
-            
-            this.Teams.Add(newEntityWindows.Instance);
+            // TODO Don't access Windows in ViewModel
+            var windows = new NewGenericEntityWindows<Team>();
+            windows.ShowDialog();
+            if (windows.Result != null)
+            {
+                this.Teams.Add(windows.Result);
+            }
         }
 
         private void QuarterBackCommandHandling()
@@ -105,48 +151,6 @@ namespace Planungsboard.Presentation.ViewModels
 
             this.DisplayQuarters = newQuarterList;
         }
-
-        private (int quarter, int year) ConvertFromQuater(string input)
-        {
-            var quarter = Int32.Parse(input[1].ToString());
-            var year = Int32.Parse(input.Substring(3, 4));
-
-            return (quarter, year);
-        }
-
-        #region Properties
-
-        private List<string> displayQuarters;
-
-        public List<string> DisplayQuarters
-        {
-            get => displayQuarters;
-            set => base.Set(ref this.displayQuarters, value);
-        }
-
-        public List<Team> Teams { get; set; }
-
-        private double teamLabelWidth;
-
-        public double TeamLabelWidth
-        {
-            get => teamLabelWidth;
-            set => base.Set(ref teamLabelWidth, value);
-        }
-
-        #endregion
-
-        #region Commands
-
-        public RelayCommand LoadedCommand { get; set; }
-        public RelayCommand QuarterNextCommand { get; set; }
-        public RelayCommand QuarterBackCommand { get; set; }
-
-        public RelayCommand NewTeamCommand { get; set; }
-
-        #endregion
-
-        #region Commands Handling
 
         private void LoadedCommandHandling()
         {
@@ -242,8 +246,6 @@ namespace Planungsboard.Presentation.ViewModels
                 debugDataCard.Id = rnd.Next(10000, 99999).ToString();
                 debugDataCard.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
             }
-
-
 
             return debugDataCards;
         }
