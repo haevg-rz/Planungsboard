@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation.Views
 {
     /// <summary>
-    /// Interaktionslogik für NewEntityWindows.xaml
+    ///     Interaktionslogik für NewEntityWindows.xaml
     /// </summary>
     public partial class NewEntityWindows : Window
     {
@@ -24,10 +13,7 @@ namespace Planungsboard.Presentation.Views
             this.InitializeComponent();
         }
 
-        public object Result
-        {
-            get => new ViewModelLocator().NewEntityWindowsViewModel.Result;
-        }
+        public object Result => new ViewModelLocator().NewEntityWindowsViewModel.Result;
 
         public object Instance
         {

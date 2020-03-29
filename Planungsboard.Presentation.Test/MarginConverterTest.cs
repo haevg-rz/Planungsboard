@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Planungsboard.Presentation.ViewModels;
@@ -18,8 +17,8 @@ namespace Planungsboard.Presentation.Test
             #region Arrange
 
             double actualWidth = 1000;
-            Card card = new Card() {AssignedQuarter = new List<string>() {quarter}};
-            List<string> quarters = new List<string>() {"1", "2", "3", "4"};
+            var card = new Card {AssignedQuarter = new List<string> {quarter}};
+            var quarters = new List<string> {"1", "2", "3", "4"};
 
             #endregion
 
@@ -47,8 +46,8 @@ namespace Planungsboard.Presentation.Test
             #region Arrange
 
             double actualWidth = 1000;
-            Card card = new Card() {AssignedQuarter = new List<string>(quarter.Split(','))};
-            List<string> quarters = new List<string>() {"1", "2", "3", "4"};
+            var card = new Card {AssignedQuarter = new List<string>(quarter.Split(','))};
+            var quarters = new List<string> {"1", "2", "3", "4"};
 
             #endregion
 
@@ -74,8 +73,8 @@ namespace Planungsboard.Presentation.Test
             #region Arrange
 
             double actualWidth = 1000;
-            Card card = new Card() {AssignedQuarter = new List<string>(quarter.Split(','))};
-            List<string> quarters = new List<string>() {"3", "4", "5", "6"};
+            var card = new Card {AssignedQuarter = new List<string>(quarter.Split(','))};
+            var quarters = new List<string> {"3", "4", "5", "6"};
 
             #endregion
 

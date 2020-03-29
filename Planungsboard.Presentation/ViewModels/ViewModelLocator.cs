@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Ioc;
 
 namespace Planungsboard.Presentation.ViewModels
 {

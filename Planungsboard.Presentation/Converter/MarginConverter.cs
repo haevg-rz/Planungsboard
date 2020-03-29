@@ -5,23 +5,12 @@ using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Data;
-using System.Windows.Documents;
 using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation
 {
     public class MarginConverter : IMultiValueConverter
     {
-        public Thickness Convert(double actualWidth, Card card, List<string> quarters)
-        {
-            return (Thickness) this.Convert(new object[]
-            {
-                actualWidth,
-                card,
-                quarters
-            }, null, null, null);
-        }
-
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             try
@@ -51,6 +40,16 @@ namespace Planungsboard.Presentation
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        public Thickness Convert(double actualWidth, Card card, List<string> quarters)
+        {
+            return (Thickness) this.Convert(new object[]
+            {
+                actualWidth,
+                card,
+                quarters
+            }, null, null, null);
         }
     }
 }

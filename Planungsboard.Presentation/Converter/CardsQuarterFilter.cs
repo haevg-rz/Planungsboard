@@ -25,11 +25,6 @@ namespace Planungsboard.Presentation
 
     public class CardsQuarterFilterForMultiples : IMultiValueConverter
     {
-        public List<Card> Convert(IEnumerable<Card> cards, IEnumerable<string> quarters)
-        {
-            return this.Convert(new Object[] {cards, quarters}, null, null, null) as List<Card>;
-        }
-
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var cards = values[0] as IEnumerable<Card>;
@@ -45,6 +40,11 @@ namespace Planungsboard.Presentation
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Card> Convert(IEnumerable<Card> cards, IEnumerable<string> quarters)
+        {
+            return this.Convert(new object[] {cards, quarters}, null, null, null) as List<Card>;
         }
     }
 }
