@@ -3,6 +3,7 @@
 A student's project to manage dev teams and project lead teams
 
 ![Build](https://github.com/haevg-rz/Planungsboard/workflows/.NET%20Core/badge.svg)
+[![Gitter](https://badges.gitter.im/Planungsboard/community.svg)](https://gitter.im/Planungsboard/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Motivation
 
