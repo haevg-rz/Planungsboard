@@ -5,10 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Planungsboard.Presentation.UserControls"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance local:Card}"
-             d:DesignHeight="100" d:DesignWidth="200">
+             
+             d:DesignWidth="200">
 
-    <Border BorderBrush="{Binding Color}" BorderThickness="5,2,2,2" CornerRadius="2">
+    <Border BorderBrush="{Binding Color}" BorderThickness="5,2,2,2" CornerRadius="2"
+            Background="White"
+            DataContext="{Binding Path=Item, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+            d:DataContext="{StaticResource DesignDataCard}"
+            >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -19,27 +23,10 @@
                 <ColumnDefinition Width="Auto" MinWidth="50" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Title}" HorizontalAlignment="Center" />
-            <Border Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="0.5" Margin="5,0,5,0" />
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=Title}" HorizontalAlignment="Center" />
+            <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" Margin="5,0,5,0" />
             <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding Effort}" HorizontalAlignment="Center" />
-
-            <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
-                <Rectangle.Fill>
-                    <VisualBrush TileMode="Tile"
-                                 Viewport="0,0,5,5" ViewportUnits="Absolute"
-                                 Viewbox="0,0,5,5" ViewboxUnits="Absolute">
-                        <VisualBrush.Visual>
-                            <Grid Background="Transparent">
-                                <Path Stroke="AliceBlue" Data="M 0 3 l 8 0" Opacity="0.5" />
-                            </Grid>
-                        </VisualBrush.Visual>
-                        <VisualBrush.RelativeTransform>
-                            <RotateTransform CenterX="0.5" CenterY="0.5" Angle="45" />
-                        </VisualBrush.RelativeTransform>
-                    </VisualBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-
+            <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Fill="{Binding Color}" Opacity="0.5" />
         </Grid>
     </Border>
 </UserControl>

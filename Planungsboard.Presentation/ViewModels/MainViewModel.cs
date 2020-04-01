@@ -48,7 +48,32 @@ namespace Planungsboard.Presentation.ViewModels
             };
             teams.ForEach(team => team.SetColor());
             this.Teams = new ObservableCollection<Team>(teams);
+
+            var backlogCards = Enumerable.Range(0, 12).Select(_ => new Card()).ToList();
+            var rnd = new Random();
+            var alpha = "qwertzuioplkjhgfdsayxcvbnm";
+            foreach (var c in backlogCards)
+            {
+                c.Effort = rnd.Next(1, 10) ^ 2;
+                c.Id = rnd.Next(10000, 99999).ToString();
+                c.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
+            }
+
+            this.BacklogCards = backlogCards;
+
+            var futureCards = Enumerable.Range(0, 21).Select(_ => new Card()).ToList();
+            foreach (var c in futureCards)
+            {
+                c.Id = rnd.Next(10000, 99999).ToString();
+                c.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
+            }
+
+            this.FutureCards = futureCards;
         }
+
+        public List<Card> FutureCards { get; set; }
+
+        public List<Card> BacklogCards { get; set; }
 
         private (int quarter, int year) ConvertFromQuater(string input)
         {
@@ -254,7 +279,7 @@ namespace Planungsboard.Presentation.ViewModels
         public string Title { get; set; }
         public int Effort { get; set; }
         public List<string> AssignedQuarter { get; set; }
-        public string Color { get; set; }
+        public string Color { get; set; } = "#FA58F4";
     }
 
     public class Team

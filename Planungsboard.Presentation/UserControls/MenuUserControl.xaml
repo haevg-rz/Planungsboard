@@ -12,7 +12,7 @@
             <Setter Property="Padding" Value="5,2.5,5,2.5" />
         </Style>
         <Style x:Key="SideBarHintStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseStyle}">
-            <Setter Property="FontSize" Value="8" />
+            <Setter Property="FontSize" Value="10" />
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
 
