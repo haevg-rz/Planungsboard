@@ -1,7 +1,39 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:viewModels="clr-namespace:Planungsboard.Presentation.ViewModels">
+                    xmlns:viewModels="clr-namespace:Planungsboard.Presentation.ViewModels"
+                    xmlns:userControls="clr-namespace:Planungsboard.Presentation.UserControls"
+                    xmlns:designData="clr-namespace:Planungsboard.Presentation.DesignData">
 
     <viewModels:Card x:Key="DesignDataCard" Id="23422" Title="BER" Color="#003087" Effort="16" />
 
+    <userControls:CardsWarpPanel x:Key="DesignDataCardsWarpPanel">
+        <userControls:CardsWarpPanel.Quarter1Cards>
+            <designData:DesignDataListCards>
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+            </designData:DesignDataListCards>
+        </userControls:CardsWarpPanel.Quarter1Cards>
+        <userControls:CardsWarpPanel.Quarter2Cards>
+            <designData:DesignDataListCards>
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+            </designData:DesignDataListCards>
+        </userControls:CardsWarpPanel.Quarter2Cards>
+        <userControls:CardsWarpPanel.Quarter3Cards>
+            <designData:DesignDataListCards>
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+            </designData:DesignDataListCards>
+        </userControls:CardsWarpPanel.Quarter3Cards>
+        <userControls:CardsWarpPanel.Quarter4Cards>
+            <designData:DesignDataListCards>
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+                <designData:DesignDataCard />
+            </designData:DesignDataListCards>
+        </userControls:CardsWarpPanel.Quarter4Cards>
+    </userControls:CardsWarpPanel>
 </ResourceDictionary>

@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Planungsboard.Presentation.UserControls"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance local:CardsWarpPanel}"
-             d:DesignHeight="450" d:DesignWidth="800">
+           
+             d:DesignHeight="100" d:DesignWidth="800">
     <UserControl.Resources>
         <Style x:Key="ItemsControlStyle" TargetType="ItemsControl">
             <Setter Property="ItemsPanel">
@@ -23,10 +23,12 @@
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="AllowDrop" Value="True" />
         </Style>
     </UserControl.Resources>
     <Border>
-        <Grid DataContext="{Binding RelativeSource={RelativeSource Self}}">
+        <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+              d:DataContext="{StaticResource DesignDataCardsWarpPanel}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -34,16 +36,17 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <ItemsControl Grid.Column="0"
-                          ItemsSource="{Binding Quarter1Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                          Style="{StaticResource ItemsControlStyle}" />
+                          ItemsSource="{Binding Quarter1Cards}"
+                          Style="{StaticResource ItemsControlStyle}" 
+                          Drop="Quarter1Cards_OnDrop"/>
             <ItemsControl Grid.Column="1"
-                          ItemsSource="{Binding Quarter2Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter2Cards}"
                           Style="{StaticResource ItemsControlStyle}" />
             <ItemsControl Grid.Column="2"
-                          ItemsSource="{Binding Quarter3Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter3Cards}"
                           Style="{StaticResource ItemsControlStyle}" />
             <ItemsControl Grid.Column="3"
-                          ItemsSource="{Binding Quarter4Cards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                          ItemsSource="{Binding Quarter4Cards}"
                           Style="{StaticResource ItemsControlStyle}" />
         </Grid>
     </Border>

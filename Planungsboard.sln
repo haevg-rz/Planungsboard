@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planungsboard.Presentation"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planungsboard.Presentation.Test", "Planungsboard.Presentation.Test\Planungsboard.Presentation.Test.csproj", "{A4B63583-9D4C-4794-974B-E14597BFFF71}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15BE0D3D-D0AD-419D-888E-B36E5C7C3035}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA44D2E3-421D-4EFE-8893-799B5079DB7F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
@@ -51,6 +51,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FB1E1656-C1D1-4E6C-AA2A-6710A77EA8D2}
+		SolutionGuid = {04E9940F-3281-4E71-A54D-D2F7579D7517}
 	EndGlobalSection
 EndGlobal

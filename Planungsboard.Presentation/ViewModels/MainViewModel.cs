@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using Planungsboard.Presentation.Message;
 using Planungsboard.Presentation.Views;
 
 namespace Planungsboard.Presentation.ViewModels
@@ -69,6 +70,22 @@ namespace Planungsboard.Presentation.ViewModels
             }
 
             this.FutureCards = futureCards;
+
+            MessengerInstance.Register<DropMessage>(this,this.DropMessageHandling );
+        }
+
+        private void DropMessageHandling(DropMessage dropMessage)
+        {
+            if (dropMessage.Card.AssignedQuarter == null || !dropMessage.Card.AssignedQuarter.Any())
+            {
+                dropMessage.Card.AssignedQuarter = new List<string> {this.DisplayQuarters[dropMessage.DisplayQuarterIndex]};
+            }
+
+            dropMessage.Team.Cards.Add(dropMessage.Card);
+
+            // TODO
+            this.Teams = new ObservableCollection<Team>(this.Teams);
+            base.RaisePropertyChanged(() => this.Teams);
         }
 
         public List<Card> FutureCards { get; set; }
