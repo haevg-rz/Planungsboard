@@ -64,6 +64,34 @@ namespace Planungsboard.Presentation.UserControls
 
         private void Quarter1Cards_OnDrop(object sender, DragEventArgs e)
         {
+            var displayQuarterIndex = 0;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void Quarter2Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 1;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void Quarter3Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 2;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void Quarter4Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 3;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void SendDropMessage(object sender, DragEventArgs e, int displayQuarterIndex)
+        {
             var card = e.Data.GetData("Object") as ViewModels.Card;
             var senderControl = sender as ItemsControl;
 
@@ -72,7 +100,7 @@ namespace Planungsboard.Presentation.UserControls
                 Card = card,
                 DropTarget = senderControl,
                 Team = this.Team,
-                DisplayQuarterIndex = 0,
+                DisplayQuarterIndex = displayQuarterIndex,
             });
         }
     }

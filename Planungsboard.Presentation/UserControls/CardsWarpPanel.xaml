@@ -41,13 +41,16 @@
                           Drop="Quarter1Cards_OnDrop"/>
             <ItemsControl Grid.Column="1"
                           ItemsSource="{Binding Quarter2Cards}"
-                          Style="{StaticResource ItemsControlStyle}" />
+                          Style="{StaticResource ItemsControlStyle}"
+                          Drop="Quarter2Cards_OnDrop"/>
             <ItemsControl Grid.Column="2"
                           ItemsSource="{Binding Quarter3Cards}"
-                          Style="{StaticResource ItemsControlStyle}" />
+                          Style="{StaticResource ItemsControlStyle}" 
+                          Drop="Quarter3Cards_OnDrop"/>
             <ItemsControl Grid.Column="3"
                           ItemsSource="{Binding Quarter4Cards}"
-                          Style="{StaticResource ItemsControlStyle}" />
+                          Style="{StaticResource ItemsControlStyle}"
+                          Drop="Quarter4Cards_OnDrop"/>
         </Grid>
     </Border>
 </UserControl>
