@@ -24,6 +24,7 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="AllowDrop" Value="True" />
+            <Setter Property="Background" Value="Transparent" />
         </Style>
     </UserControl.Resources>
     <Border>
@@ -37,7 +38,7 @@
             </Grid.ColumnDefinitions>
             <ItemsControl Grid.Column="0"
                           ItemsSource="{Binding Quarter1Cards}"
-                          Style="{StaticResource ItemsControlStyle}" 
+                          Style="{StaticResource ItemsControlStyle}"
                           Drop="Quarter1Cards_OnDrop"/>
             <ItemsControl Grid.Column="1"
                           ItemsSource="{Binding Quarter2Cards}"
