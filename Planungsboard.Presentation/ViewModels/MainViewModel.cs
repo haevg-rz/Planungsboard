@@ -228,7 +228,6 @@ namespace Planungsboard.Presentation.ViewModels
         public RelayCommand LoadedCommand { get; set; }
         public RelayCommand QuarterNextCommand { get; set; }
         public RelayCommand QuarterBackCommand { get; set; }
-
         public RelayCommand NewTeamCommand { get; set; }
 
         #endregion
