@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using GalaSoft.MvvmLight.Messaging;
+using Planungsboard.Presentation.Message;
+using Planungsboard.Presentation.ViewModels;
 
 namespace Planungsboard.Presentation.UserControls
 {
@@ -48,6 +51,57 @@ namespace Planungsboard.Presentation.UserControls
         {
             get => (List<ViewModels.Card>) this.GetValue(Quarter4CardsProperty);
             set => this.SetValue(Quarter4CardsProperty, value);
+        }
+
+        public static readonly DependencyProperty TeamProperty = DependencyProperty.Register(
+            "Team", typeof(Team), typeof(CardsWarpPanel), new PropertyMetadata(default(Team)));
+
+        public Team Team
+        {
+            get { return (Team) GetValue(TeamProperty); }
+            set { SetValue(TeamProperty, value); }
+        }
+
+        private void Quarter1Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 0;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void Quarter2Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 1;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void Quarter3Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 2;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void Quarter4Cards_OnDrop(object sender, DragEventArgs e)
+        {
+            var displayQuarterIndex = 3;
+
+            this.SendDropMessage(sender, e, displayQuarterIndex);
+        }
+
+        private void SendDropMessage(object sender, DragEventArgs e, int displayQuarterIndex)
+        {
+            var card = e.Data.GetData("Object") as ViewModels.Card;
+            var senderControl = sender as ItemsControl;
+
+            Messenger.Default.Send<DropMessage>(new DropMessage()
+            {
+                Card = card,
+                DropTarget = senderControl,
+                Team = this.Team,
+                DisplayQuarterIndex = displayQuarterIndex,
+            });
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Planungsboard.Presentation.UserControls
 {
@@ -20,6 +21,18 @@ namespace Planungsboard.Presentation.UserControls
         {
             get => (ViewModels.Card) this.GetValue(ItemProperty);
             set => this.SetValue(ItemProperty, value);
+        }
+
+        private void Card_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataObject data = new DataObject();
+                data.SetData("Object", this.Item);
+
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+            }
         }
     }
 }

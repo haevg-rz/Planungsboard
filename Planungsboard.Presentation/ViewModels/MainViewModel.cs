@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using Planungsboard.Presentation.Message;
 using Planungsboard.Presentation.Views;
 
 namespace Planungsboard.Presentation.ViewModels
@@ -59,7 +60,7 @@ namespace Planungsboard.Presentation.ViewModels
                 c.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
             }
 
-            this.BacklogCards = backlogCards;
+            this.BacklogCards = new ObservableCollection<Card>(backlogCards);
 
             var futureCards = Enumerable.Range(0, 21).Select(_ => new Card()).ToList();
             foreach (var c in futureCards)
@@ -68,12 +69,35 @@ namespace Planungsboard.Presentation.ViewModels
                 c.Title = alpha.OrderBy(c => Guid.NewGuid()).Take(rnd.Next(3, 5)).Select(c => c.ToString()).Aggregate((s, s1) => s + s1).ToUpper();
             }
 
-            this.FutureCards = futureCards;
+            this.FutureCards = new ObservableCollection<Card>(futureCards);
+
+            MessengerInstance.Register<DropMessage>(this,this.DropMessageHandling );
         }
 
-        public List<Card> FutureCards { get; set; }
+        private void DropMessageHandling(DropMessage dropMessage)
+        {
+            if (dropMessage.Card.AssignedQuarter == null || !dropMessage.Card.AssignedQuarter.Any())
+            {
+                dropMessage.Card.AssignedQuarter = new List<string> {this.DisplayQuarters[dropMessage.DisplayQuarterIndex]};
+            }
 
-        public List<Card> BacklogCards { get; set; }
+            dropMessage.Team.Cards.Add(dropMessage.Card);
+            dropMessage.Team.SetColor();
+
+            if (this.FutureCards.Contains(dropMessage.Card))
+                this.FutureCards.Remove(dropMessage.Card);
+
+            if (this.BacklogCards.Contains(dropMessage.Card))
+                this.BacklogCards.Remove(dropMessage.Card);
+            
+            // TODO
+            this.Teams = new ObservableCollection<Team>(this.Teams);
+            base.RaisePropertyChanged(() => this.Teams);
+        }
+
+        public ObservableCollection<Card> FutureCards { get; set; }
+
+        public ObservableCollection<Card> BacklogCards { get; set; }
 
         private (int quarter, int year) ConvertFromQuater(string input)
         {
@@ -204,7 +228,6 @@ namespace Planungsboard.Presentation.ViewModels
         public RelayCommand LoadedCommand { get; set; }
         public RelayCommand QuarterNextCommand { get; set; }
         public RelayCommand QuarterBackCommand { get; set; }
-
         public RelayCommand NewTeamCommand { get; set; }
 
         #endregion
@@ -296,7 +319,10 @@ namespace Planungsboard.Presentation.ViewModels
 
         public void SetColor()
         {
-            foreach (var card in this.Cards) card.Color = this.Color;
+            foreach (var card in this.Cards)
+            {
+                card.Color = this.Color;
+            }
         }
     }
 }
